@@ -176,7 +176,7 @@
                     <td width="50%"></td>
                     <td width="50%">
                         <c:if test="${game.played}">
-                            <input type="submit" align="right" value="Track">
+                            <input type="submit" align="right" value="Track" class="nicebutton">
                         </c:if>
 
                     </td>

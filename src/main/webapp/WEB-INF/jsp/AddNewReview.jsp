@@ -152,7 +152,7 @@
                                 <td width="50%"></td>
                                 <td width="50%"></td>
                                 <td width="50%">
-                                    <input type="submit" align="right" value="Submit">
+                                    <input type="submit" align="right" value="Submit" class="nicebutton">
                                 </td>
                             </tr>
                         </table>

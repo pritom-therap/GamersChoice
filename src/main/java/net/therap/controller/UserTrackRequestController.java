@@ -3,6 +3,7 @@ package net.therap.controller;
 import net.therap.dao.UserDao;
 import net.therap.domain.Game;
 import net.therap.domain.GameReview;
+import net.therap.domain.TrackedUser;
 import net.therap.domain.User;
 import net.therap.service.GameService;
 import net.therap.service.TrackUserService;
@@ -76,6 +77,24 @@ public class UserTrackRequestController extends SimpleFormController{
 
         HttpSession session = request.getSession();
         session.setAttribute("playedGames", playedGames);
+        User currentUser = (User)session.getAttribute("User");
+        currentUser = userDao.getUserbyId(currentUser.getUserId());
+
+        for (TrackedUser trackedUser : currentUser.getTrackedUsers()) {
+
+            if (trackedUser.getTrackedUser().getEmail().equals(requestedUser.getEmail())){
+                if(trackedUser.getApproved().equals("A")) {
+                    requestedUser.setApproved(true);
+                }
+                if(trackedUser.getApproved().equals("R")) {
+                    requestedUser.setRequested(true);
+                }
+                if(trackedUser.getApproved().equals("U")) {
+                    requestedUser.setRejected(true);
+                }
+            }
+        }
+
         return requestedUser;
 
     }
@@ -89,10 +108,10 @@ public class UserTrackRequestController extends SimpleFormController{
 
         User trackedUser = (User)command;
 
-        trackUserService.sendRequest(user,trackedUser);
+        trackUserService.addRequest(user, trackedUser);
 
 
-        return new ModelAndView("Success");
+        return new ModelAndView("User");
 
 
 

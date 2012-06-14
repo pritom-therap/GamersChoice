@@ -4,6 +4,7 @@ import net.therap.command.AddUser;
 import net.therap.dao.UserDao;
 import net.therap.service.UserService;
 import org.apache.log4j.Logger;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindException;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
@@ -53,8 +54,11 @@ public class UserRegistrationController extends SimpleFormController{
 
         userService.saveUser(addUser);
 
+        ModelMap modelMap = new ModelMap();
+
+        modelMap.addAttribute("message","Your account has been created. You can now log in");
 
 
-        return  new ModelAndView("Success");
+        return new ModelAndView("Success", modelMap);
     }
 }

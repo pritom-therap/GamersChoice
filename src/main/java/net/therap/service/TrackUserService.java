@@ -15,7 +15,13 @@ public interface TrackUserService {
 
     public boolean checkIfTracked(User user, User trackedUser);
 
-    public void sendRequest(User user, User requestedUser);
+    public void addRequest(User user, User requestedUser);
 
     public List<User> getApprovedUsers(User user);
+
+    public List<User> getRequestingUsers(User user);
+
+    public void approveUsers(String [] processedRequestingUsers, User approvingUser);
+
+    public void rejectUsers(String[] processedRequestingUsers, User approvingUser);
 }

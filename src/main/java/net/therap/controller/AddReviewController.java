@@ -99,6 +99,8 @@ public class AddReviewController extends SimpleFormController {
 
         ModelMap modelMap = new ModelMap();
 
+        modelMap.addAttribute("message","Your review has been added");
+
 
         return new ModelAndView("Success", modelMap);
     }
@@ -119,7 +121,7 @@ public class AddReviewController extends SimpleFormController {
         List<Game> games = gameDao.getGames();
         User user = userDao.getUserbyId(1);
 
-        //logger.info(user.getUserName());
+        //logger.info(user.getEmail());
 
         /*HttpSession session = request.getSession();
         session.setAttribute("User", user);*/

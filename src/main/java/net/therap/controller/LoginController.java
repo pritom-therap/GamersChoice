@@ -3,6 +3,7 @@ package net.therap.controller;
 import net.therap.command.Login;
 import net.therap.domain.User;
 import net.therap.service.UserService;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindException;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.SimpleFormController;
@@ -52,7 +53,12 @@ public class LoginController extends SimpleFormController{
             response.sendRedirect("/gamerschoice/Login.htm");
         }
 
-        return new ModelAndView("Success");
+        ModelMap modelMap = new ModelMap();
+
+        modelMap.addAttribute("message","You have successfully logged in");
+
+
+        return new ModelAndView("Success", modelMap);
 
     }
 }

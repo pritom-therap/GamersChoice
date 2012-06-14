@@ -53,14 +53,24 @@
                 <td width="50%"></td>
                 <td width="50%"></td>
                 <td width="50%">
-                    <%--<c:if test="${game.played}">--%>
-                        <input type="submit" align="right" value="Track">
-                    <%--</c:if>--%>
+                    <c:if test="${requestedUser.approved==false && requestedUser.requested==false && requestedUser.rejected==false}">
+                        <input type="submit" align="right" value="Track" class="nicebutton">
+                    </c:if>
 
                 </td>
             </tr>
         </table>
     </form:form>
+
+    <c:if test="${requestedUser.approved}">
+                <label style="font-size:15px;color:#0066CC;">You are already tracking ${requestedUser.userName}</label>
+            </c:if>
+            <c:if test="${requestedUser.requested}">
+                <label style="font-size:15px;color:#0066CC;">Your have requested to track ${requestedUser.userName}</label>
+            </c:if>
+             <c:if test="${requestedUser.rejected}">
+                <label style="font-size:15px;color:#0066CC;">${requestedUser.userName} has rejected your request</label>
+            </c:if>
 </div>
 
 </body>

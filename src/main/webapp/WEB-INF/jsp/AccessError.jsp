@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: pritom
-  Date: 6/3/12
-  Time: 12:32 PM
+  User: tahmid
+  Date: 6/14/12
+  Time: 12:11 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,11 +10,12 @@
 <head><title>Simple jsp page</title></head>
 <body>
 <div class="post">
-    <div class="entry">
-        ${message}
 
+    <div class="title">
+         Sorry, you do not have sufficient privileges to access this page.
     </div>
 
 </div>
+
 </body>
 </html>

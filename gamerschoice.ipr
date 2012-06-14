@@ -340,7 +340,7 @@
   <component name="libraryTable">
     <library name="lib">
       <CLASSES>
-        <root url="jar://$PROJECT_DIR$/../skeleton/lib/sitemesh-2.4.1.jar!/" />
+        <root url="jar://$USER_HOME$/skeleton/lib/sitemesh-2.4.1.jar!/" />
         <root url="jar:///usr/local/apache-tomcat-6.0.35/lib/servlet-api.jar!/" />
       </CLASSES>
       <JAVADOC />

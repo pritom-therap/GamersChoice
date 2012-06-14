@@ -89,7 +89,7 @@
                     <td width="50%"></td>
                     <td width="50%"></td>
                     <td width="50%">
-                        <input type="submit" align="right" value="Register">
+                        <input type="submit" align="right" value="Register" class="nicebutton">
                     </td>
                 </tr>
             </table>

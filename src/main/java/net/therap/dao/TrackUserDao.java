@@ -13,5 +13,7 @@ public interface TrackUserDao {
 
     public void saveRequest(TrackedUser trackedUser);
 
+    public void updateRequest(TrackedUser trackedUser);
+
 
    }

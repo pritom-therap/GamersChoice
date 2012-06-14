@@ -51,8 +51,10 @@ public class UserServiceImpl implements UserService {
         List<User> users = userDao.getUsers();
 
 
+
         for (User user : users) {
-            if (user.getUserName().equals(login.getUserName()) && user.getPassword().equals(login.getPassword())) {
+            logger.info("Login email: " + login.getEmail() + " User email: " + user.getEmail() + " Login password: " + login.getPassword() + " User password: " + user.getPassword());
+            if (user.getEmail().equals(login.getEmail()) && user.getPassword().equals(login.getPassword())) {
                 return user;
             }
 

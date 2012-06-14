@@ -47,6 +47,10 @@ public class LoginFilter implements Filter {
                 return;
             }
 
+            if (user!=null && path.contains("AddNewGame") && user.getStatus().equals("U")) {
+                 ((HttpServletResponse) servletResponse).sendRedirect("/gamerschoice/AccessError.htm");
+            }
+
             filterChain.doFilter(servletRequest, servletResponse);
         }
 

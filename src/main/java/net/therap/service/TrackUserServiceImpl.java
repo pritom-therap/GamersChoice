@@ -40,7 +40,7 @@ public class TrackUserServiceImpl implements TrackUserService {
         return false;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
-    public void sendRequest(User user, User requestedUser) {
+    public void addRequest(User user, User requestedUser) {
 
         TrackedUser trackedUser = new TrackedUser();
 
@@ -73,6 +73,78 @@ public class TrackUserServiceImpl implements TrackUserService {
             }
         }
 
-        return  approvedUsers;
+        return approvedUsers;
     }
+
+    public List<User> getRequestingUsers(User user) {
+
+        user = userDao.getUserbyId(user.getUserId());
+
+
+        List<TrackedUser> trackedUsers = user.getRequestingUsers();
+
+        List<User> requestingUsers = new ArrayList<User>();
+
+        for (TrackedUser trackedUser : trackedUsers) {
+            User approvedUser = trackedUser.getUser();
+
+            if (trackedUser.getApproved().equals("R")) {
+                requestingUsers.add(approvedUser);
+            }
+        }
+
+        return requestingUsers;
+    }
+
+    public void approveUsers(String[] processedRequestingUsers, User approvingUser) {
+
+        //List<User> approvedRequestingUsers = new ArrayList<User>();
+
+        approvingUser = userDao.getUserbyId(approvingUser.getUserId());
+
+        List<TrackedUser> requestingUsers = approvingUser.getRequestingUsers();
+
+        for (String approvedUser : processedRequestingUsers) {
+            User approvedRequestingUser = userDao.getUserbyId(Integer.parseInt(approvedUser));
+
+            for (TrackedUser trackedUser : requestingUsers) {
+                if (trackedUser.getUser().getEmail().equals(approvedRequestingUser.getEmail())) {
+                    trackedUser.setApproved("A");
+                    trackUserDao.saveRequest(trackedUser);
+                    break;
+                }
+
+            }
+
+        }
+
+
+    }
+    
+    public void rejectUsers(String[] processedRequestingUsers, User approvingUser) {
+
+        //List<User> approvedRequestingUsers = new ArrayList<User>();
+
+        approvingUser = userDao.getUserbyId(approvingUser.getUserId());
+
+        List<TrackedUser> requestingUsers = approvingUser.getRequestingUsers();
+
+        for (String approvedUser : processedRequestingUsers) {
+            User approvedRequestingUser = userDao.getUserbyId(Integer.parseInt(approvedUser));
+
+            for (TrackedUser trackedUser : requestingUsers) {
+                if (trackedUser.getUser().getEmail().equals(approvedRequestingUser.getEmail())) {
+                    trackedUser.setApproved("U");
+                    trackUserDao.saveRequest(trackedUser);
+                    break;
+                }
+
+            }
+
+        }
+
+
+    }
+
+
 }

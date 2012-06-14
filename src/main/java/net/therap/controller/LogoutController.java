@@ -1,5 +1,7 @@
 package net.therap.controller;
 
+import net.therap.command.Login;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
@@ -24,7 +26,15 @@ public class LogoutController implements Controller{
 
         //session.invalidate();
 
-        return new ModelAndView("Success");
+
+         ModelMap modelMap = new ModelMap();
+
+        modelMap.addAttribute("message","You have loggged out");
+
+
+        return new ModelAndView("Success", modelMap);
+
+
 
     }
 }

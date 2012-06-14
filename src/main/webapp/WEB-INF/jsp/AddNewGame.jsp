@@ -35,7 +35,7 @@
                         Upload screenshot :
                     </td>
                     <td>
-                        <input type="file" name="file"/>
+                        <input type="file" name="file" class="nicebutton"/>
                     </td>
                 </tr>
                 <tr class="spaceunder">
@@ -69,7 +69,7 @@
 
                 <tr class="spaceunder">
                     <td>
-                        <input type="submit" value="Add Game"/>
+                        <input type="submit" value="Add Game" class="nicebutton"/>
                     </td>
                 </tr>
             </table>

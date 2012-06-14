@@ -20,7 +20,7 @@ public class LoginValidator implements Validator{
 
     public void validate(Object o, Errors errors) {
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userName", "required.userName", "User Name is required.");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "required.email", "Email is required.");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"password","required.password","Password is required.");
     }
 }

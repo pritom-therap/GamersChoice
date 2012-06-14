@@ -478,13 +478,13 @@ tr.spaceunder > td {
             <table>
                 <tr class="spaceunder">
                     <td>
-                        User Name :
+                        Email :
                     </td>
                     <td>
-                        <form:input path="userName"/>
+                        <form:input path="email"/>
                     </td>
                     <td>
-                        <form:errors path="userName" cssClass="error"/>
+                        <form:errors path="email" cssClass="error"/>
                     </td>
                 </tr>
 
@@ -505,7 +505,7 @@ tr.spaceunder > td {
                     <td width="50%"></td>
                     <td width="50%"></td>
                     <td width="50%">
-                        <input type="submit" align="right" value="Login">
+                        <input type="submit" align="right" value="Login" class="nicebutton">
                     </td>
                 </tr>
             </table>

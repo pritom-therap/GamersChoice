@@ -30,6 +30,9 @@ public class User {
     List<TrackedUser> requestingUsers;
     UserRatingHistory userRatingHistory;
     UserGenreHistory userGenreHistory;
+    boolean approved;
+    boolean requested;
+    boolean rejected;
 
     @OneToMany(mappedBy = "gameReviewId.user")
     public List<GameReview> getPlayedGames() {
@@ -178,5 +181,32 @@ public class User {
 
     public void setPlayedGameCount(int playedGameCount) {
         this.playedGameCount = playedGameCount;
+    }
+
+    @Transient
+    public boolean isApproved() {
+        return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
+    }
+
+    @Transient
+    public boolean isRequested() {
+        return requested;
+    }
+
+    public void setRequested(boolean requested) {
+        this.requested = requested;
+    }
+
+    @Transient
+    public boolean isRejected() {
+        return rejected;
+    }
+
+    public void setRejected(boolean rejected) {
+        this.rejected = rejected;
     }
 }

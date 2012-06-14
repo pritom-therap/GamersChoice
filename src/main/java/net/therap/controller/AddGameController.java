@@ -42,7 +42,6 @@ public class AddGameController extends SimpleFormController {
             throws Exception {
 
         AddGame addGame = (AddGame) command;
-        String fileName = "";
 
 
         int gameId = gameService.addGame(addGame);
