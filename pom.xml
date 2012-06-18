@@ -197,6 +197,101 @@
             <version>3.0.4</version>
         </dependency>
 
+        <!--testing-->
+        <dependency>
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils-dbunit</artifactId>
+            <version>3.3</version>
+            <scope>test</scope>
+
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-nop</artifactId>
+                </exclusion>
+            </exclusions>
+
+        </dependency>
+
+        <dependency>
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils-core</artifactId>
+            <version>3.3</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils-orm</artifactId>
+            <version>3.3</version>
+            <scope>test</scope>
+
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-nop</artifactId>
+                </exclusion>
+            </exclusions>
+
+        </dependency>
+
+        <!--<dependency>-->
+        <!--<groupId>org.unitils</groupId>-->
+        <!--<artifactId>unitils-orm</artifactId>-->
+        <!--<version>3.3</version>-->
+        <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils-spring</artifactId>
+            <version>3.3</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils-testng</artifactId>
+            <version>3.3</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.1.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils-easymock</artifactId>
+            <version>3.3</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymock</artifactId>
+            <version>3.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils-mock</artifactId>
+            <version>3.3</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.unitils</groupId>
+            <artifactId>unitils-inject</artifactId>
+            <version>3.3</version>
+            <scope>test</scope>
+        </dependency>
+
 
     </dependencies>
     <build>

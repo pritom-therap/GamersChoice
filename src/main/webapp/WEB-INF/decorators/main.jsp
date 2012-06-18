@@ -20,7 +20,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="css/jmesa.css"/>
     <link rel="stylesheet" type="text/css" href="css/smoothDivScroll.css">
-    <%--<link rel="stylesheet" type="text/css" href="css/sjmesa.css"/>--%>
+
 </head>
 <body>
 <div id="wrapper">
@@ -43,12 +43,7 @@
         </div>
         <!-- end #menu -->
         <div id="search">
-            <%--<form method="get" action="">
-                   <fieldset>
-                   <input type="text" name="s" id="search-text" size="15" />
-                   <input type="submit" id="search-submit" value="GO" />
-                   </fieldset>
-               </form>--%>
+
             <c:if test="${not empty User}">
                 <label style="font-size:15px; color:#FFFFFF">
                     Hello, ${User.userName} <a href="/gamerschoice/Logout.htm">Log out</a>
@@ -63,12 +58,7 @@
         <div id="page-bgtop">
             <div id="content">
                 <div>
-                    <%--<h2 class="title"><a href="#">Welcome to Condition </a></h2>
-                     <p class="meta">Sunday, April 26, 2009 7:27 AM Posted by <a href="#">Someone</a></p>
-                     <div class="entry">
-                         <p>This is <strong>Condition </strong>, a free, fully standards-compliant CSS template designed by <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>, released for free under the <a href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5</a> license.  You're free to use this template for anything as long as you link back to <a href="http://www.freecsstemplates.org/">my site</a>. Enjoy :)</p>
-                         <p>Sed lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor, elementum ipsum. Proin imperdiet est. Phasellus dapibus semper urna. Pellentesque ornare, orci in felis. Donec ut ante. In id eros. Suspendisse lacus turpis, cursus egestas at sem.Sed lacus. </p>
-                     </div>--%>
+
 
                     <decorator:body/>
                 </div>
@@ -77,7 +67,7 @@
             <div id="sidebar">
                 <ul>
                     <li>
-                        <h2>Features</h2>
+                        <h2 style="background-color:#1b63d2;color:#dedef5;font-weight:bold;">Features</h2>
                         <ul>
                             <c:if test="${not empty User}">
                                 <li><a href="/gamerschoice/Games.htm">Games</a></li>
@@ -86,6 +76,7 @@
                                 <li><a href="/gamerschoice/GamersChoice.htm">Gamer's Choice</a></li>
                                 <li><a href="/gamerschoice/Users.htm">Members</a></li>
                                 <li><a href="/gamerschoice/TrackRequests.htm">Track Requests</a></li>
+                                <li><a href="/gamerschoice/GameReviews.htm">Your Reviews</a></li>
                                 <c:if test="${User.status=='A'}">
                                     <li><a href="/gamerschoice/AddNewGame.htm">Add New Game</a></li>
                                 </c:if>
@@ -94,10 +85,7 @@
                                 <li><a href="/gamerschoice/Login.htm">Log In</a></li>
                                 <li><a href="/gamerschoice/Register.htm">Register</a></li>
                             </c:if>
-                            <%-- <c:forEach items="${topGames}" var="game">
-                                <label>${game.gameName} ${game.ratingOverall}</label>
-                                <br>
-                            </c:forEach>--%>
+
                         </ul>
                     </li>
                 </ul>
@@ -106,33 +94,8 @@
                 <br>
                 <br>
 
-                <h2>
-                    Top Games
-                </h2>
 
-                <form name="TopGameForm">
-
-
-                    <jmesa:tableModel id="tag" items="${topGames}" var="game">
-
-                        <c:url value="/Game.htm" var="displayURL">
-                            <c:param name="gameId" value="${game.gameId}"/>
-                        </c:url>
-
-                        <jmesa:htmlTable width="200px" styleClass="jmesa" cellpadding="2px" cellspacing="1px">
-                            <jmesa:htmlRow>
-                                <jmesa:htmlColumn property="gameName" style="font-size:10px">
-                                    <a href="${displayURL}">${game.gameName}</a>
-                                </jmesa:htmlColumn>
-
-                                <jmesa:htmlColumn title="Rating" style="font-size:10px">
-                                    <%--${(game.ratingPresentation+game.ratingGraphics+game.ratingGamePlay+game.ratingSound+game.ratingLongevity)/5}--%>
-                                    ${game.ratingOverall}
-                                </jmesa:htmlColumn>
-                            </jmesa:htmlRow>
-                        </jmesa:htmlTable>
-                    </jmesa:tableModel>
-                </form>
+                <jsp:include page="TopGames.jsp"/>
             </div>
             <!-- end #sidebar -->
             <div style="clear: both;">&nbsp;</div>

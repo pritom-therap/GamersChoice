@@ -4,7 +4,7 @@
 
 <!--
     <excludes>
-        <pattern>/Login</pattern>
+        <pattern>/LoginCmd</pattern>
     </excludes>
 -->
 

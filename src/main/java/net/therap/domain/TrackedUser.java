@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 /**
  * Created by IntelliJ IDEA.
- * User: pritom
+ * user: pritom
  * Date: 5/31/12
  * Time: 12:20 PM
  * To change this template use File | Settings | File Templates.

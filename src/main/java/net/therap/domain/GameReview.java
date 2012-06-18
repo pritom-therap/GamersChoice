@@ -5,7 +5,7 @@ import java.util.Date;
 
 /**
  * Created by IntelliJ IDEA.
- * User: pritom
+ * user: pritom
  * Date: 5/30/12
  * Time: 3:05 PM
  * To change this template use File | Settings | File Templates.

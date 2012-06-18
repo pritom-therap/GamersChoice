@@ -11,7 +11,7 @@ import java.io.IOException;
 
 /**
  * Created by IntelliJ IDEA.
- * User: pritom
+ * user: pritom
  * Date: 6/7/12
  * Time: 4:32 PM
  * To change this template use File | Settings | File Templates.
@@ -42,7 +42,9 @@ public class LoginFilter implements Filter {
             User user = (User) session.getAttribute("User");
 
             if (user == null) {
-                logger.info("Found User to be null");
+                logger.info("Found user to be null");
+                session.setAttribute("message", "Sorry, you need to login to view this page");
+
                 ((HttpServletResponse) servletResponse).sendRedirect("/gamerschoice/Login.htm");
                 return;
             }

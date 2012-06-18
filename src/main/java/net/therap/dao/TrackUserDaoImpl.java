@@ -7,7 +7,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 /**
  * Created by IntelliJ IDEA.
- * User: pritom
+ * user: pritom
  * Date: 6/13/12
  * Time: 11:03 AM
  * To change this template use File | Settings | File Templates.

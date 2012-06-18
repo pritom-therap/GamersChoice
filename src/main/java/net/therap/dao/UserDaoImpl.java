@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
- * User: pritom
+ * user: pritom
  * Date: 6/4/12
  * Time: 11:27 AM
  * To change this template use File | Settings | File Templates.
@@ -174,11 +174,11 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
         if (trackedGames.contains(game)) {
 
 
-            logger.info("found " + game.getGameName() + "in User's list of tracked games");
+            logger.info("found " + game.getGameName() + "in user's list of tracked games");
 
         }
         else {
-            logger.info("could not find " + game.getGameName() + "in User's list of tracked games");
+            logger.info("could not find " + game.getGameName() + "in user's list of tracked games");
         }
 
 

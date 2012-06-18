@@ -512,3 +512,8 @@ tr.spaceunder2 > td {
 	height: 22px;
 	width: 230px;
 }
+
+.error{
+    color:red;
+
+}
