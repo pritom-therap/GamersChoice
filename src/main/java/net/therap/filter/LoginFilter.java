@@ -42,16 +42,22 @@ public class LoginFilter implements Filter {
             User user = (User) session.getAttribute("User");
 
             if (user == null) {
+
                 logger.info("Found user to be null");
                 session.setAttribute("message", "Sorry, you need to login to view this page");
+
+
+                logger.info("Found User to be null");
 
                 ((HttpServletResponse) servletResponse).sendRedirect("/gamerschoice/Login.htm");
                 return;
             }
 
+
             if (user!=null && path.contains("AddNewGame") && user.getStatus().equals("U")) {
                  ((HttpServletResponse) servletResponse).sendRedirect("/gamerschoice/AccessError.htm");
             }
+
 
             filterChain.doFilter(servletRequest, servletResponse);
         }

@@ -1,7 +1,6 @@
 package net.therap.dao;
 
 import net.therap.domain.TrackedUser;
-import net.therap.domain.User;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -21,6 +20,7 @@ public class TrackUserDaoImpl extends HibernateDaoSupport implements TrackUserDa
         session.flush();
     }
 
+
     public void updateRequest(TrackedUser trackedUser) {
 
         Session session = getSession();
@@ -28,4 +28,5 @@ public class TrackUserDaoImpl extends HibernateDaoSupport implements TrackUserDa
         session.flush();
 
     }
+
 }

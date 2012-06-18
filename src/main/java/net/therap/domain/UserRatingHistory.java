@@ -7,7 +7,11 @@ import javax.persistence.*;
 
 /**
  * Created by IntelliJ IDEA.
+<<<<<<< HEAD
  * user: pritom
+=======
+ * User: pritom
+>>>>>>> 958d29b8c056bfe7629bdb3f882003e9797e4933
  * Date: 5/30/12
  * Time: 2:43 PM
  * To change this template use File | Settings | File Templates.

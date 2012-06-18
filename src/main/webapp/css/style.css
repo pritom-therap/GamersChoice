@@ -477,6 +477,7 @@ tr.spaceunder2 > td {
     text-align: center;
 }
 
+
 .nicebutton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #dcecfb;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #dcecfb;
@@ -517,3 +518,4 @@ tr.spaceunder2 > td {
     color:red;
 
 }
+

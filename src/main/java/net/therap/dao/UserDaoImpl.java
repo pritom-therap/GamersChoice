@@ -174,11 +174,15 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
         if (trackedGames.contains(game)) {
 
 
+
             logger.info("found " + game.getGameName() + "in user's list of tracked games");
 
         }
         else {
             logger.info("could not find " + game.getGameName() + "in user's list of tracked games");
+
+            logger.info("found " + game.getGameName() + "in User's list of tracked games");
+
         }
 
 

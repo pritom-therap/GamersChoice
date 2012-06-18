@@ -12,6 +12,9 @@
     </listener>
 
 
+
+
+
     <filter>
         <filter-name>OpenSessionInViewFilter</filter-name>
         <filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
@@ -64,6 +67,12 @@
         <filter-name>TopGamesFilter</filter-name>
         <url-pattern>*.htm</url-pattern>
     </filter-mapping>
+
+
+
+
+
+
 
 
     <servlet>

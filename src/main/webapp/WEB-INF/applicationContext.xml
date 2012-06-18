@@ -45,6 +45,8 @@
 
     <bean id="topGamesFilterBean" class="net.therap.filter.TopGamesFilter">
         <property name="gameDao" ref="gameDao"/>
+
+
     </bean>
 
 

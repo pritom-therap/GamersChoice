@@ -47,9 +47,11 @@
         <property name="validator" ref="gameReviewValidator"/>
     </bean>
 
+
     <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
 
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
 
     <bean class="net.therap.controller.game.GameAdditionController" name="addGameController">
 
@@ -139,7 +141,7 @@
 
     <bean name="accessErrorController" class="net.therap.controller.miscellaneous.AccessErrorController"/>
 
-   <!-- <bean name="topGamesController" class="net.therap.controller.game.TopGamesController">
+    <!-- <bean name="topGamesController" class="net.therap.controller.game.TopGamesController">
         <property name="gameService" ref="gameService"/>
     </bean>-->
 
@@ -158,9 +160,11 @@
                 <prop key="/GamersChoice.htm">gameRecommendationController</prop>
                 <prop key="/Users.htm">viewUsersController</prop>
                 <prop key="/User.htm">userTrackRequestController</prop>
+
                 <prop key="/TrackRequests.htm">approveRequestController</prop>
                 <prop key="/GameReviews.htm">viewGameReviewController</prop>
                 <prop key="/AccessError.htm">accessErrorController</prop>
+
 
             </props>
         </property>
@@ -172,6 +176,7 @@
         <property name="gameReviewDao" ref="gameReviewDao"/>
         <property name="userDao" ref="userDao"/>
     </bean>
+
 
     <bean id="gameService" class="net.therap.service.game.GameServiceImpl">
         <property name="gameDao" ref="gameDao"/>
@@ -195,7 +200,9 @@
         <property name="genreMap" ref="genreMap"/>
     </bean>
 
+
     <bean id="trackUserService" class="net.therap.service.tracking.TrackUserServiceImpl">
+
         <property name="userDao" ref="userDao"/>
         <property name="trackUserDao" ref="trackUserDao"/>
     </bean>
@@ -207,6 +214,7 @@
 
     <bean id="loginValidator" class="net.therap.validators.LoginValidator"/>
 
+
     <bean id="processRequestValidator" class="net.therap.validators.TrackUserValidator"/>
 
     <bean id="gameAdditionValidator" class="net.therap.validators.GameAdditionValidator"/>
@@ -216,6 +224,5 @@
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="validation"/>
     </bean>
-
 
 </beans>

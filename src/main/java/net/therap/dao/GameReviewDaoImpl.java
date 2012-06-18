@@ -1,17 +1,13 @@
 package net.therap.dao;
 
 import net.therap.domain.GameReview;
-import net.therap.domain.User;
 import org.apache.log4j.Logger;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import java.util.List;
-
 /**
  * Created by IntelliJ IDEA.
- * user: pritom
+ * User: pritom
  * Date: 5/31/12
  * Time: 11:01 AM
  * To change this template use File | Settings | File Templates.
