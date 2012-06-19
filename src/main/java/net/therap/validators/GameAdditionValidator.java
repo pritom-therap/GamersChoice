@@ -31,6 +31,8 @@ public class GameAdditionValidator implements Validator {
 
         }
 
+
+
         if(gameCmd.getFile()==null || gameCmd.getFile().getSize() == 0){
 
             errors.rejectValue("file","required.file");

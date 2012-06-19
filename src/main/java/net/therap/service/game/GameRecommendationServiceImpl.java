@@ -68,12 +68,6 @@ public class GameRecommendationServiceImpl implements GameRecommendationService 
         List<GameReview> playedGames = user.getPlayedGames();
         List<Game> unPlayedGames = new ArrayList<Game>(games);
 
-        /*for ()
-        for (GameReview gameReview : playedGames) {
-
-            if (game.getGameName().equals(gameReview.getGameById().getGameName()) && game.getPlatform().equals(gameReview.getGameById().getPlatform())) {
-            }
-        }*/
         for (GameReview gameReview : playedGames) {
 
             unPlayedGames.remove(gameReview.getGame());
@@ -107,7 +101,7 @@ public class GameRecommendationServiceImpl implements GameRecommendationService 
         setGenre(recommendedGames);
 
 
-        return recommendedGames;  //To change body of implemented methods use File | Settings | File Templates.
+        return recommendedGames;
     }
 
     public float calculateRecommendationScore(UserGenreHistory userGenreHistory, UserRatingHistory userRatingHistory, Game game) {
@@ -126,6 +120,7 @@ public class GameRecommendationServiceImpl implements GameRecommendationService 
     }
 
     public float calculateGenreScore(UserGenreHistory userGenreHistory, Game game) {
+
         int userGenreSum = userGenreHistory.getFpsGenreCount() + userGenreHistory.getTpsGenreCount() + userGenreHistory.getActionGenreCount() + userGenreHistory.getAdventureGenreCount() + userGenreHistory.getSandboxGenreCount() + userGenreHistory.getRpgGenreCount() + userGenreHistory.getFightingGenreCount() + userGenreHistory.getHacknslashGenreCount() + userGenreHistory.getHorrorGenreCount() + userGenreHistory.getMmoGenreCount() + userGenreHistory.getPlatformerGenreCount() + userGenreHistory.getPuzzleGenreCount() + userGenreHistory.getRacingGenreCount() + userGenreHistory.getRtsGenreCount() + userGenreHistory.getSimulationGenreCount() + userGenreHistory.getSportsGenreCount() + userGenreHistory.getStealthGenreCount();
 
         if (userGenreSum == 0) {
@@ -198,7 +193,7 @@ public class GameRecommendationServiceImpl implements GameRecommendationService 
 
     public float calculateDifficultyScore(UserRatingHistory userRatingHistory, Game game) {
 
-        if (userRatingHistory.getAverageRatingDifficulty() == 0) {
+        if (userRatingHistory.getAverageRatingDifficulty() == 0f) {
             return 0;
         }
 
@@ -218,6 +213,10 @@ public class GameRecommendationServiceImpl implements GameRecommendationService 
         }
 
         float length = maxLength - Math.abs(userRatingHistory.getAverageRatingGameLength() - game.getGameLength());
+
+        if (length < 0) {
+            return 0;
+        }
 
         length = (length * lengthScoreWeight) / maxLength;
 

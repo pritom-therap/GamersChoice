@@ -25,7 +25,7 @@ public class GameReviewValidator implements Validator{
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"pros","required.pros","Give pros");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"cons","required.cons","Give cons");
 
-        if(reviewCmd.getGameLength()==0.0){
+        if(reviewCmd.getGameLength()<=0.0){
             errors.rejectValue("gameLength","required.length");
         }
 
@@ -52,6 +52,8 @@ public class GameReviewValidator implements Validator{
         if(reviewCmd.getDifficulty()==-1){
 			errors.rejectValue("difficulty", "required.difficulty");
 		}
+
+
 
 
     }
