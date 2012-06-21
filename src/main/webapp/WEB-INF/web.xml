@@ -84,6 +84,8 @@
         <servlet-name>gamerschoice</servlet-name>
         <url-pattern>*.htm</url-pattern>
     </servlet-mapping>
+    
+
 
 
     <resource-ref>

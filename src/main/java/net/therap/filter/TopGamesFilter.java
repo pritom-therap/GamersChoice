@@ -15,16 +15,16 @@ import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
-<<<<<<< HEAD
+ * <<<<<<< HEAD
  * user: pritom
-=======
+ * =======
  * User: pritom
->>>>>>> 958d29b8c056bfe7629bdb3f882003e9797e4933
+ * >>>>>>> 958d29b8c056bfe7629bdb3f882003e9797e4933
  * Date: 6/10/12
  * Time: 11:01 AM
  * To change this template use File | Settings | File Templates.
  */
-public class TopGamesFilter extends GenericFilterBean{
+public class TopGamesFilter extends GenericFilterBean {
 
     GameDao gameDao;
 
@@ -42,11 +42,15 @@ public class TopGamesFilter extends GenericFilterBean{
 
         HttpSession session = request.getSession();
 
-        List<Game> topRankedGames = gameDao.getTopGames();
+        List<Game> topRankedGames = (List<Game>)session.getAttribute("topGames");
 
-        session.setAttribute("topGames", topRankedGames);
+        if (topRankedGames == null) {
+            topRankedGames = gameDao.getTopGames();
 
-        filterChain.doFilter(servletRequest,servletResponse);
+            session.setAttribute("topGames", topRankedGames);
+        }
+
+        filterChain.doFilter(servletRequest, servletResponse);
 
     }
 }

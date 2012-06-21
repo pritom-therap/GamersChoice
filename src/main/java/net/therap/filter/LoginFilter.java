@@ -34,7 +34,7 @@ public class LoginFilter implements Filter {
         String path = ((HttpServletRequest) servletRequest).getRequestURI();
 
 
-        if (path.contains("Login") || path.contains("Register")) {
+        if (path.contains("Login") || path.contains("Register") || path.contains("Welcome")) {
 
            filterChain.doFilter(servletRequest, servletResponse);
 

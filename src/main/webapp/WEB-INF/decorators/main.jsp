@@ -77,6 +77,7 @@
                         <h2 style="background-color:#1b63d2;color:#dedef5;font-weight:bold;">Features</h2>
 
                         <ul>
+                            <li><a href="/gamerschoice/Welcome.htm">Home</a></li>
                             <c:if test="${not empty User}">
                                 <li><a href="/gamerschoice/Games.htm">Games</a></li>
                                 <li><a href="/gamerschoice/AddNewReview.htm">Review Game</a></li>

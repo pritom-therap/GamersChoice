@@ -1,6 +1,15 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: pritom
+  Date: 6/21/12
+  Time: 12:16 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<head><title>Simple jsp page</title></head>
 <body>
-<%--<h2>Hello Gamers!</h2>
+<h2>Hello Gamers!</h2>
 <br>
 
 <div class="post">
@@ -22,6 +31,7 @@
         be persuaded to buy such games. However, it is often the case that he may only have limited amount to devote
         to gaming. As a result, he will find the game to be slow-moving and will end up regretting his purchase.
         <br>
+
         This website aims to address these concerns. We realise that a game should only be recommended to a gamer if it
         matches his/her own preferences or if it receives favorable reviews from other like-minded gamers. So, we
         have created a website in which users will receive suggestions of video games according to their personal
@@ -29,8 +39,6 @@
     </div>
 
 
-</div>--%>
-<jsp:forward page="Welcome.htm" />
-
+</div>
 </body>
 </html>

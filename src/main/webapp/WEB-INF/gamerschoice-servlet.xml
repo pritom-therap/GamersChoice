@@ -29,7 +29,6 @@
 
     <tx:advice id="gameadvice" transaction-manager="transactionManager">
         <tx:attributes>
-            <!-- <tx:method name="*" propagation="REQUIRED" read-only="true"/>-->
             <tx:method name="save*" propagation="REQUIRED"/>
             <tx:method name="add*" propagation="REQUIRED"/>
         </tx:attributes>
@@ -141,6 +140,10 @@
 
     <bean name="accessErrorController" class="net.therap.controller.miscellaneous.AccessErrorController"/>
 
+    <bean name="welcomeController" class="net.therap.controller.miscellaneous.WelcomeController">
+        <property name="gameService" ref="gameService"/>
+    </bean>
+
     <!-- <bean name="topGamesController" class="net.therap.controller.game.TopGamesController">
         <property name="gameService" ref="gameService"/>
     </bean>-->
@@ -164,8 +167,7 @@
                 <prop key="/TrackRequests.htm">approveRequestController</prop>
                 <prop key="/GameReviews.htm">viewGameReviewController</prop>
                 <prop key="/AccessError.htm">accessErrorController</prop>
-
-
+                <prop key="/Welcome.htm">welcomeController</prop>
             </props>
         </property>
     </bean>

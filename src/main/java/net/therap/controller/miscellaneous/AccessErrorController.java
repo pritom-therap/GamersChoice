@@ -16,6 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 public class AccessErrorController implements Controller{
 
     public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
-        return new ModelAndView("miscellaneous/AccessError");
+        return new ModelAndView("AccessError");
     }
 }
