@@ -23,7 +23,7 @@ public class GameReviewServiceImpl implements GameReviewService {
 
     private GameDao gameDao;
     private UserDao userDao;
-    private GameReviewDao gameReviewDao;
+     GameReviewDao gameReviewDao;
 
     public GameDao getGameDao() {
         return gameDao;

@@ -23,7 +23,7 @@
     </bean>
 
     <aop:config>
-        <aop:pointcut id="gamePointcut" expression="execution(* net.therap.service.*ServiceImpl.*(..))"/>
+        <aop:pointcut id="gamePointcut" expression="execution(* net.therap.service.*.*ServiceImpl.*(..))"/>
         <aop:advisor advice-ref="gameadvice" pointcut-ref="gamePointcut"/>
     </aop:config>
 
