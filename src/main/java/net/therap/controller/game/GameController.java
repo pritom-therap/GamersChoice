@@ -28,8 +28,8 @@ public class GameController extends SimpleFormController{
     protected final Logger logger = Logger.getLogger(this.getClass());
 
 
-    GameService gameService;
-    TrackGameService trackGameService;
+    private GameService gameService;
+    private TrackGameService trackGameService;
 
 
 

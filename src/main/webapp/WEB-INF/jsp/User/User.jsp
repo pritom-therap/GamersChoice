@@ -9,6 +9,7 @@
 <%@ taglib uri="/jmesa" prefix="jmesa" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head><title>Simple jsp page</title></head>

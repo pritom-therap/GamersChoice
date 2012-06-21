@@ -27,7 +27,7 @@ public class ApproveRequestController extends SimpleFormController {
 
     protected final Logger logger = Logger.getLogger(this.getClass());
 
-    TrackUserService trackUserService;
+    private TrackUserService trackUserService;
 
     public TrackUserService getTrackUserService() {
         return trackUserService;

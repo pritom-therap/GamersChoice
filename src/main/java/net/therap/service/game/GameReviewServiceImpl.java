@@ -21,9 +21,9 @@ import java.util.List;
  */
 public class GameReviewServiceImpl implements GameReviewService {
 
-    GameDao gameDao;
-    UserDao userDao;
-    GameReviewDao gameReviewDao;
+    private GameDao gameDao;
+    private UserDao userDao;
+    private GameReviewDao gameReviewDao;
 
     public GameDao getGameDao() {
         return gameDao;

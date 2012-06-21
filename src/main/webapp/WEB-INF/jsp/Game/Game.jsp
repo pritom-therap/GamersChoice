@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head><title>Simple jsp page</title></head>
@@ -22,10 +23,10 @@
             <img src="images/screenshot.jpg" alt="" height="500" width="800">
 
             <div class="entry">
-                <label style="font-weight:bold">Developed by: </label>${game.developer}
+                <label style="font-weight:bold"><fmt:message key="game.developer"/>: </label>${game.developer}
                 <br>
                 <br>
-                <label style="font-weight:bold">Synopsis: </label> ${game.synopsis}
+                <label style="font-weight:bold"><fmt:message key="game.synopsis"/>: </label> ${game.synopsis}
                 <br>
             </div>
 
@@ -36,7 +37,7 @@
                         <table>
                             <tr class="spaceunder2">
                                 <td>
-                                    <label style="font-weight:bold;">Genre: </label>
+                                    <label style="font-weight:bold;"><fmt:message key="game.genre"/>: </label>
                                 </td>
                                 <td>
                                         ${game.genreString}
@@ -44,7 +45,7 @@
                             </tr>
                             <tr class="spaceunder2">
                                 <td>
-                                    <label style="font-weight:bold;">Platform: </label>
+                                    <label style="font-weight:bold;"><fmt:message key="game.platform"/>: </label>
                                 </td>
                                 <td>
                                         ${game.platform}
@@ -56,7 +57,7 @@
                         <table>
                             <tr class="spaceunder2">
                                 <td>
-                                    <label style="font-weight:bold;">Release Date: </label>
+                                    <label style="font-weight:bold;"><fmt:message key="game.releaseDate"/>: </label>
                                 </td>
                                 <td>
                                         ${game.releaseDate}
@@ -65,7 +66,7 @@
                             </tr>
                             <tr class="spaceunder2">
                                 <td>
-                                    <label style="font-weight:bold;">Difficulty: </label>
+                                    <label style="font-weight:bold;"><fmt:message key="addReview.difficulty"/>: </label>
                                 </td>
                                 <td>
                                         <%--${game.difficulty}--%>
@@ -103,7 +104,7 @@
                 <table>
                     <tr>
                         <td>
-                            Presentation
+                            <fmt:message key="addReview.presentation"/>
                         </td>
                         <td>
                                 ${game.ratingPresentation}
@@ -111,7 +112,7 @@
                     </tr>
                     <tr>
                         <td>
-                            Graphics
+                            <fmt:message key="addReview.graphics"/>
                         </td>
                         <td>
                                 ${game.ratingGraphics}
@@ -120,7 +121,7 @@
 
                     <tr>
                         <td>
-                            Gameplay
+                            <fmt:message key="addReview.gameplay"/>
                         </td>
                         <td>
                                 ${game.ratingGamePlay}
@@ -129,7 +130,7 @@
 
                     <tr>
                         <td>
-                            Sound
+                           <fmt:message key="addReview.sound"/>
                         </td>
                         <td>
                                 ${game.ratingSound}
@@ -138,7 +139,7 @@
 
                     <tr>
                         <td>
-                            Lasting Appeal
+                            <fmt:message key="addReview.longevity"/>
                         </td>
                         <td>
                                 ${game.ratingLongevity}
@@ -148,7 +149,7 @@
 
                     <tr>
                         <td>
-                            Game length (in hours)
+                            <fmt:message key="addReview.gameLength"/>
                         </td>
                         <td>
                                 ${game.gameLength}
@@ -158,7 +159,7 @@
 
                     <tr>
                         <td>
-                            Overall Rating
+                            <fmt:message key="addReview.overall"/>
                         </td>
                         <td>
                                 ${(game.ratingOverall)}
@@ -176,17 +177,17 @@
                     <td width="50%"></td>
                     <td width="50%">
                         <c:if test="${game.played}">
-                            <input type="submit" align="right" value="Track" class="nicebutton">
+                            <input type="submit" align="right" value="<fmt:message key="game.trackButton"/>" class="nicebutton">
                         </c:if>
 
                     </td>
                 </tr>
             </table>
             <c:if test="${game.tracked}">
-                <label style="font-size:15px;color:#0066CC;">You are tracking this game</label>
+                <label style="font-size:15px;color:#0066CC;"><fmt:message key="game.alreadytracked"/></label>
             </c:if>
             <c:if test="${game.played == false && game.tracked==false}">
-                <label style="font-size:15px;color:#0066CC;">You have reviewed this game</label>
+                <label style="font-size:15px;color:#0066CC;"><fmt:message key="game.alreadyReviewed"/></label>
             </c:if>
 
         </div>

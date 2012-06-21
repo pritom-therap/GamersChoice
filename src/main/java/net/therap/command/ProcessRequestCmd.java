@@ -9,7 +9,7 @@ package net.therap.command;
  */
 public class ProcessRequestCmd {
 
-    String [] processedRequestingUsers;
+    private String [] processedRequestingUsers;
 
     public String[] getProcessedRequestingUsers() {
         return processedRequestingUsers;

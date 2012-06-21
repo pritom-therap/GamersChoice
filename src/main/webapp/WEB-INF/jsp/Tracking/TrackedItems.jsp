@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/jmesa" prefix="jmesa" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -22,7 +23,7 @@
 </head>
 <body>
 <div class="post">
-    <div class="title">Tracked games<%--${game.gameName} khelechen ?--%>
+    <div class="title"><fmt:message key="trackedItems.games"/><%--${game.gameName} khelechen ?--%>
     </div>
     <%--<div class="entry">--%>
     <form name="GameForm">
@@ -53,7 +54,7 @@
 
 
     <fieldset>
-        <legend><h2>Tracked Users</h2></legend>
+        <legend><h2><fmt:message key="trackedItems.users"/></h2></legend>
         <c:forEach items="${trackedUsers}" var="trackedUser">
             <fieldset style="width:800px">
                 <legend><h3>${trackedUser.userName} recently played:</h3></legend>

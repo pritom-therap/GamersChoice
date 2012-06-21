@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  */
 public class LoginController extends SimpleFormController{
 
-    UserService userService;
+    private UserService userService;
 
     public UserService getUserService() {
         return userService;
@@ -58,4 +58,6 @@ public class LoginController extends SimpleFormController{
 
         return new ModelAndView(new RedirectView("/gamerschoice/GamersChoice.htm"));
     }
+
+
 }

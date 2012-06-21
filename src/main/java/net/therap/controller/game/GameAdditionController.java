@@ -27,7 +27,7 @@ public class GameAdditionController extends SimpleFormController {
 
     protected final Logger logger = Logger.getLogger(this.getClass());
 
-    GameService gameService;
+    private GameService gameService;
 
     public GameService getGameService() {
         return gameService;

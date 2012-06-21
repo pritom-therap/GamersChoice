@@ -11,12 +11,12 @@ import org.springframework.web.multipart.MultipartFile;
  */
 public class GameCmd {
 
-    MultipartFile file;
-    String gameName;
-    String platform;
-    String developer;
-    String synopsis;
-    String [] genre;
+    private MultipartFile file;
+    private String gameName;
+    private String platform;
+    private String developer;
+    private String synopsis;
+    private String [] genre;
 
 
 

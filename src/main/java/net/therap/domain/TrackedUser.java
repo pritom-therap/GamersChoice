@@ -23,8 +23,8 @@ import javax.persistence.*;
 public class  TrackedUser {
 
     private TrackedUserId trackedUserId = new TrackedUserId();
-    String isApproved;
-    long version;
+    private String isApproved;
+    private long version;
 
     @EmbeddedId
     public TrackedUserId getTrackedUserId() {

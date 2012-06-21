@@ -23,7 +23,7 @@ import java.util.List;
 public class GameReviewController implements Controller {
 
 
-    GameReviewService gameReviewService;
+    private GameReviewService gameReviewService;
     protected final Logger logger = Logger.getLogger(this.getClass());
 
     public GameReviewService getGameReviewService() {

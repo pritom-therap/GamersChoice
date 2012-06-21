@@ -69,6 +69,9 @@ public class ReviewAdditionController extends SimpleFormController {
     }
 
     protected Map referenceData(HttpServletRequest request) throws Exception {
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("User");
+
         Map referenceData = new HashMap();
         List<Float> scaleList = new ArrayList<Float>();
         for (float i = 1.0f; i <= 10.0; i += 0.5) {
@@ -76,8 +79,7 @@ public class ReviewAdditionController extends SimpleFormController {
         }
 
 
-        List<Game> games = gameService.getGames();
-
+        List<Game> games = gameService.getUnPlayedGames(user);
 
         referenceData.put("scaleList", scaleList);
         referenceData.put("games", games);

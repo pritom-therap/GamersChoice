@@ -8,19 +8,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head><title>Simple jsp page</title></head>
 <body>
 <div class="post">
-    <div class="title">Register<%--${game.gameName} khelechen ?--%>
+    <div class="title"><fmt:message key="registration.title"/><%--${game.gameName} khelechen ?--%>
     </div>
     <div class="entry">
         <form:form method="post" commandName="userCmd" action="">
             <table>
                 <tr class="spaceunder2">
                     <td width="50%">
-                        User Name :
+                        <fmt:message key="registration.userName"/> :
 
                     </td>
                     <td width="50%">
@@ -32,7 +33,7 @@
                 </tr>
                 <tr class="spaceunder2">
                     <td>
-                        Email :
+                        <fmt:message key="registration.email"/> :
                     </td>
                     <td>
                         <form:input path="email"/>
@@ -42,8 +43,9 @@
                     </td>
                 </tr>
                 <tr class="spaceunder2">
+
                     <td>
-                        Password :
+                        <fmt:message key="registration.password"/> :
                     </td>
                     <td>
 
@@ -55,7 +57,7 @@
                 </tr>
                 <tr class="spaceunder2">
                     <td>
-                        Confirmed Password :
+                        <fmt:message key="registration.confirmPassword"/> :
                     </td>
                     <td>
                         <form:password path="confirmPassword"/>
@@ -72,8 +74,7 @@
             <table>
                 <tr>
                     <td>
-                        <form:checkbox path="agreeRules"/>I agree to follow all the rules and regulations of the Admins
-                        and this website
+                        <form:checkbox path="agreeRules"/><fmt:message key="registration.agreeRules"/>
 
 
                     </td>
@@ -86,7 +87,7 @@
                 <tr>
                     <td>
                         <form:checkbox path="agreeAgeLimit"/>
-                        I am over 12 years old
+                        <fmt:message key="registration.agreeAge"/>
 
                     </td>
                 </tr>
@@ -98,7 +99,7 @@
 
                 <tr>
                     <td width="50%">
-                        <input type="submit" align="right" value="Register" class="nicebutton">
+                        <input type="submit" align="right" value="<fmt:message key="registration.title"/>" class="nicebutton">
                     </td>
                 </tr>
             </table>

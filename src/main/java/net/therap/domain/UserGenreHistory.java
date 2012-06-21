@@ -21,26 +21,26 @@ import javax.persistence.*;
 @Table(name = "PT_USER_GENRE_HISTORY")
 public class UserGenreHistory {
 
-    int userId;
-    int fpsGenreCount;
-    int tpsGenreCount;
-    int actionGenreCount;
-    int adventureGenreCount;
-    int sandboxGenreCount;
-    int rpgGenreCount;
-    int rtsGenreCount;
-    int horrorGenreCount;
-    int hacknslashGenreCount;
-    int stealthGenreCount;
-    int simulationGenreCount;
-    int sportsGenreCount;
-    int racingGenreCount;
-    int fightingGenreCount;
-    int mmoGenreCount;
-    int puzzleGenreCount;
-    int platformerGenreCount;
-    long version;
-    User user;
+    private int userId;
+    private int fpsGenreCount;
+    private int tpsGenreCount;
+    private int actionGenreCount;
+    private int adventureGenreCount;
+    private int sandboxGenreCount;
+    private int rpgGenreCount;
+    private int rtsGenreCount;
+    private int horrorGenreCount;
+    private int hacknslashGenreCount;
+    private int stealthGenreCount;
+    private int simulationGenreCount;
+    private int sportsGenreCount;
+    private int racingGenreCount;
+    private int fightingGenreCount;
+    private int mmoGenreCount;
+    private int puzzleGenreCount;
+    private int platformerGenreCount;
+    private long version;
+    private User user;
 
     @GenericGenerator(name = "generator", strategy = "foreign",	parameters = @Parameter(name = "property", value = "user"))
 	@Id

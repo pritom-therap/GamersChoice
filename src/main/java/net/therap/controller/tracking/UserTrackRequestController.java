@@ -30,9 +30,9 @@ public class UserTrackRequestController extends SimpleFormController {
     protected final Logger logger = Logger.getLogger(this.getClass());
 
 
-    GameService gameService;
-    TrackUserService trackUserService;
-    UserService userService;
+    private GameService gameService;
+    private TrackUserService trackUserService;
+    private UserService userService;
 
     public UserService getUserService() {
         return userService;

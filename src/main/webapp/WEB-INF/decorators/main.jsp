@@ -19,7 +19,9 @@
     <meta name="description" content=""/>
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="css/jmesa.css"/>
-    <link rel="stylesheet" type="text/css" href="css/smoothDivScroll.css">
+
+
+
 
 </head>
 <body>
@@ -111,8 +113,6 @@
                 <jsp:include page="TopGames.jsp"/>
 
 
-
-
             </div>
             <!-- end #sidebar -->
             <div style="clear: both;">&nbsp;</div>
@@ -123,7 +123,8 @@
         <div id="footer">
 
             <p>Copyright (c) 2012 GamersChoice. All rights reserved. Developed by <a
-                    href="http://www.facebook.com/tahmid.nabi">Tahmid</a> and <a href="https://www.facebook.com/pritomahmed.pritom">Pritom</a>
+                    href="http://www.facebook.com/tahmid.nabi">Tahmid</a> and <a
+                    href="https://www.facebook.com/pritomahmed.pritom">Pritom</a>
         </div>
     </div>
     <!-- end #footer -->

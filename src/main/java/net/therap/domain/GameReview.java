@@ -24,17 +24,17 @@ import java.util.Date;
 public class GameReview implements Comparable{
 
     private GameReviewId gameReviewId = new GameReviewId();
-    String pros;
-    String cons;
-    Date reviewDate;
-    float ratingPresentation;
-    float ratingGraphics;
-    float ratingSound;
-    float ratingGamePlay;
-    float ratingLongevity;
-    float gameLength;
-    int difficulty;
-    long version;
+    private String pros;
+    private String cons;
+    private Date reviewDate;
+    private float ratingPresentation;
+    private float ratingGraphics;
+    private float ratingSound;
+    private float ratingGamePlay;
+    private float ratingLongevity;
+    private float gameLength;
+    private int difficulty;
+    private long version;
 
     @EmbeddedId
     public GameReviewId getGameReviewId() {

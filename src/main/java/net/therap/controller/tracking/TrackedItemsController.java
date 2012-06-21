@@ -25,9 +25,9 @@ import java.util.List;
 public class TrackedItemsController implements Controller {
 
 
-    UserService userService;
-    TrackGameService trackGameService;
-    TrackUserService trackUserService;
+    private UserService userService;
+    private TrackGameService trackGameService;
+    private TrackUserService trackUserService;
 
 
     public TrackUserService getTrackUserService() {

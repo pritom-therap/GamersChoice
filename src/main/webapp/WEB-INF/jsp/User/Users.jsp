@@ -8,12 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="/jmesa" prefix="jmesa" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 
 <html>
 <head><title>Registered Users</title></head>
 <body>
 <div class="post">
-    <div class="title">Registered members<%--${game.gameName} khelechen ?--%>
+    <div class="title"><fmt:message key="users.title"/><%--${game.gameName} khelechen ?--%>
     </div>
 
     <div>

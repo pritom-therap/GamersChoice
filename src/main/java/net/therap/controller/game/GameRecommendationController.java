@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class GameRecommendationController implements Controller {
 
-    GameRecommendationService gameRecommendationService;
+    private GameRecommendationService gameRecommendationService;
 
 
     public GameRecommendationService getGameRecommendationService() {

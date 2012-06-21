@@ -9,12 +9,12 @@ package net.therap.command;
  */
 public class UserCmd {
 
-    String userName;
-    String email;
-    String password;
-    String confirmPassword;
-    boolean agreeRules;
-    boolean agreeAgeLimit;
+    private String userName;
+    private String email;
+    private String password;
+    private String confirmPassword;
+    private boolean agreeRules;
+    private boolean agreeAgeLimit;
 
     public String getConfirmPassword() {
         return confirmPassword;

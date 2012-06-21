@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServlet;
 public class UserRegistrationController extends SimpleFormController{
 
 
-    UserService userService;
+    private UserService userService;
 
     Logger logger = Logger.getLogger(this.getClass());
 

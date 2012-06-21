@@ -17,20 +17,20 @@ import java.util.*;
  */
 public class GameRecommendationServiceImpl implements GameRecommendationService {
 
-    static final int genreScoreWeight = 40;
-    static final int ratingScoreWeight = 35;
-    static final int difficultyScoreWeight = 15;
-    static final int lengthScoreWeight = 10;
-    static final int maxRating = 500;
-    static final int maxDifficulty = 25;
-    static final int maxLength = 100;
+    private static final int genreScoreWeight = 40;
+    private static final int ratingScoreWeight = 35;
+    private static final int difficultyScoreWeight = 15;
+    private static final int lengthScoreWeight = 10;
+    private static final int maxRating = 500;
+    private static final int maxDifficulty = 25;
+    private static final int maxLength = 100;
 
     protected final Logger logger = Logger.getLogger(this.getClass());
 
 
-    UserDao userDao;
-    GameDao gameDao;
-    GenreMap genreMap;
+    private UserDao userDao;
+    private GameDao gameDao;
+    private GenreMap genreMap;
 
     public UserDao getUserDao() {
         return userDao;

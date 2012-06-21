@@ -40,6 +40,7 @@ public class GamesViewController implements Controller {
 
         modelMap.addAttribute("gameList", gameList);
 
+
         return new ModelAndView("/Game/Games", modelMap);
 
     }

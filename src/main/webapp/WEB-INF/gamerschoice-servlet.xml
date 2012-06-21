@@ -222,7 +222,8 @@
     <bean id="gameReviewValidator" class="net.therap.validators.GameReviewValidator"/>
 
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basename" value="validation"/>
+        <property name="basename" value="messages_en_US"/>
+
     </bean>
 
 </beans>

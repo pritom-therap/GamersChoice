@@ -18,9 +18,9 @@ import java.util.Set;
  */
 public class TrackGameServiceImpl implements TrackGameService {
 
-    UserDao userDao;
-    GameDao gameDao;
-    GenreMap genreMap;
+    private UserDao userDao;
+    private GameDao gameDao;
+    private GenreMap genreMap;
 
     public GenreMap getGenreMap() {
         return genreMap;

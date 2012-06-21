@@ -47,6 +47,8 @@ public class GameViewControllerTest extends UnitilsTestNG{
         MockHttpServletRequest mockHttpServletRequest = new MockHttpServletRequest();
         MockHttpServletResponse mockHttpServletResponse = new MockHttpServletResponse();
 
+
+
         mockHttpServletRequest.setMethod("GET");
 
 

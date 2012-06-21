@@ -21,16 +21,16 @@ import javax.persistence.*;
 @Table(name = "PT_USER_RATING_HISTORY")
 public class UserRatingHistory {
 
-    int userId;
-    User user;
-    float averageRatingPresentation;
-    float averageRatingGraphics;
-    float averageRatingSound;
-    float averageRatingGamePlay;
-    float averageRatingLongevity;
-    float averageRatingDifficulty;
-    float averageRatingGameLength;
-    long version;
+    private int userId;
+    private User user;
+    private float averageRatingPresentation;
+    private float averageRatingGraphics;
+    private float averageRatingSound;
+    private float averageRatingGamePlay;
+    private float averageRatingLongevity;
+    private float averageRatingDifficulty;
+    private float averageRatingGameLength;
+    private long version;
 
     @GenericGenerator(name = "generator", strategy = "foreign",	parameters = @Parameter(name = "property", value = "user"))
 	@Id

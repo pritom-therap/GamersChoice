@@ -29,9 +29,9 @@ import java.util.Set;
 public class GameServiceImpl implements GameService {
     protected final Logger logger = Logger.getLogger(this.getClass());
 
-    GameDao gameDao;
-    GenreMap genreMap;
-    UserDao userDao;
+    private GameDao gameDao;
+    private GenreMap genreMap;
+    private UserDao userDao;
 
 
     public UserDao getUserDao() {
@@ -283,5 +283,17 @@ public class GameServiceImpl implements GameService {
 
     public List<Game> getTopGames() {
         return gameDao.getTopGames();
+    }
+
+    public List<Game> getUnPlayedGames(User user) {
+        user = userDao.getUserbyId(user.getUserId());
+
+        List<Game> games = getGames();
+        List<Game> playedGames = getReviewedGames(user);
+
+        games.removeAll(playedGames);
+
+
+        return games;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

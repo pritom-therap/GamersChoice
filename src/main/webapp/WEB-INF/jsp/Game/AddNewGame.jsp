@@ -9,6 +9,7 @@
 <%@page pageEncoding="UTF-8" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -16,14 +17,14 @@
 </head>
 <body>
 <div class="post">
-    <div class="title">Add a new game<%--${game.gameName} khelechen ?--%>
+    <div class="title"><fmt:message key="addGame.title"/><%--${game.gameName} khelechen ?--%>
     </div>
     <div class="entry">
         <form:form method="POST" commandName="gameCmd" enctype="multipart/form-data">
             <table>
                 <tr class="spaceunder2">
                     <td>
-                        Name of Game:
+                        <label style="font-weight:bold"><fmt:message key="addGame.gameName"/>:</label>
                     </td>
                     <td>
                         <form:input path="gameName"></form:input>
@@ -35,7 +36,7 @@
                 </tr>
                 <tr class="spaceunder2">
                     <td>
-                        Developer:
+                        <label style="font-weight:bold"><fmt:message key="addGame.developer"/>:</label>
                     </td>
                     <td>
                         <form:input path="developer"></form:input>
@@ -46,7 +47,7 @@
                 </tr>
                 <tr class="spaceunder2">
                     <td>
-                        Upload screenshot :
+                        <label style="font-weight:bold"><fmt:message key="addGame.screenshot"/>:</label>
                     </td>
                     <td>
                         <input type="file" name="file" />
@@ -57,7 +58,7 @@
                 </tr>
                 <tr class="spaceunder2">
                     <td>
-                        Synopsis:
+                        <label style="font-weight:bold"><fmt:message key="addGame.synopsis"/>:</label>
                     </td>
                     <td>
                         <form:textarea path="synopsis" rows="10" cols="60"></form:textarea>
@@ -68,7 +69,7 @@
                 </tr>
                 <tr class="spaceunder2">
                     <td>
-                        Platform:
+                        <label style="font-weight:bold"><fmt:message key="addGame.platform"/>:</label>
                     </td>
                     <td>
                         <form:select path="platform">
@@ -80,7 +81,7 @@
                 </tr>
                 <tr class="spaceunder2">
                     <td>
-                       Genre(s):
+                       <label style="font-weight:bold"><fmt:message key="addGame.genre"/>:</label>
                     </td>
                     <td>
                         <form:checkboxes path="genre" items="${genreList}" delimiter="<br>"/>
@@ -92,7 +93,7 @@
 
                 <tr class="spaceunder2">
                     <td>
-                        <input type="submit" value="Add Game" class="nicebutton"/>
+                        <input type="submit" value="<fmt:message key="addGame.button"/>" class="nicebutton"/>
                     </td>
                 </tr>
             </table>

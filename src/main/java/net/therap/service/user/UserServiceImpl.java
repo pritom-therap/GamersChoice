@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class UserServiceImpl implements UserService {
 
-    UserDao userDao;
+    private UserDao userDao;
     Logger logger = Logger.getLogger(this.getClass());
 
     public void saveUser(UserCmd userCmd) {

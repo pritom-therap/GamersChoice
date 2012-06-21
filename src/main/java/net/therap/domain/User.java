@@ -15,25 +15,25 @@ import java.util.List;
 @Entity
 @Table(name = "PT_USER")
 public class User {
-    int userId;
-    String userName;
-    Date birthday;
-    String email;
-    String password;
-    Date joinDate;
-    long version;
-    String status;
-    int playedGameCount;
-    List<GameReview> playedGames;
-    List<Game> trackedGames;
-    List<TrackedUser> trackedUsers;
-    List<TrackedUser> requestingUsers;
-    UserRatingHistory userRatingHistory;
-    UserGenreHistory userGenreHistory;
+    private int userId;
+    private String userName;
+    private Date birthday;
+    private String email;
+    private String password;
+    private Date joinDate;
+    private long version;
+    private String status;
+    private int playedGameCount;
+    private List<GameReview> playedGames;
+    private List<Game> trackedGames;
+    private List<TrackedUser> trackedUsers;
+    private List<TrackedUser> requestingUsers;
+    private UserRatingHistory userRatingHistory;
+    private UserGenreHistory userGenreHistory;
 
-    boolean approved;
-    boolean requested;
-    boolean rejected;
+    private boolean approved;
+    private boolean requested;
+    private boolean rejected;
 
 
     @OneToMany(mappedBy = "gameReviewId.user")

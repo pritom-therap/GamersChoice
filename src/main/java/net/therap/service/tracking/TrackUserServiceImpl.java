@@ -19,8 +19,8 @@ import java.util.List;
  */
 public class TrackUserServiceImpl implements TrackUserService {
 
-    UserDao userDao;
-    TrackUserDao trackUserDao;
+    private UserDao userDao;
+    private TrackUserDao trackUserDao;
 
     public UserDao getUserDao() {
         return userDao;

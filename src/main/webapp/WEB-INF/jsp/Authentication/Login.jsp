@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -18,7 +19,7 @@
 <body>
 <div class="post">
     <div class="title">
-        Please log in<%--${game.gameName} khelechen ?--%>
+        <fmt:message key="login.title"/><%--${game.gameName} khelechen ?--%>
         <br>
         <br>
     </div>
@@ -29,7 +30,7 @@
             <table>
                 <tr class="spaceunder2">
                     <td>
-                        Email :
+                       <fmt:message key="login.email"/> :
                     </td>
                     <td>
                         <form:input path="email"/>
@@ -41,7 +42,7 @@
 
                 <tr class="spaceunder2">
                     <td>
-                        Password :
+                        <fmt:message key="login.password"/> :
                     </td>
                     <td>
 

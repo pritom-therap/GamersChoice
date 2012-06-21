@@ -21,30 +21,30 @@ import java.util.List;
 @Table(name = "PT_GAME")
 public class Game {
 
-    int gameId;
-    String gameName;
-    Blob screenShot;
-    String platform;
-    int difficulty;
-    Date releaseDate;
-    String synopsis;
-    float ratingPresentation;
-    float ratingGraphics;
-    float ratingSound;
-    float ratingGamePlay;
-    float ratingLongevity;
-    float ratingOverall;
-    float gameLength;
-    int voteCount;
-    int genre;
-    String developer;
-    String genreString;
-    long version;
-    String status;
-    List<GameReview> reviews;
-    List<User> trackingUsers;
-    boolean played;
-    boolean tracked;
+    private int gameId;
+    private String gameName;
+    private Blob screenShot;
+    private String platform;
+    private int difficulty;
+    private Date releaseDate;
+    private String synopsis;
+    private float ratingPresentation;
+    private float ratingGraphics;
+    private float ratingSound;
+    private float ratingGamePlay;
+    private float ratingLongevity;
+    private float ratingOverall;
+    private float gameLength;
+    private int voteCount;
+    private int genre;
+    private String developer;
+    private String genreString;
+    private long version;
+    private String status;
+    private List<GameReview> reviews;
+    private List<User> trackingUsers;
+    private boolean played;
+    private boolean tracked;
 
 
 
