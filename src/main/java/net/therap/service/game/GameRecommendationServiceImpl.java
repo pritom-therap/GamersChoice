@@ -127,25 +127,7 @@ public class GameRecommendationServiceImpl implements GameRecommendationService 
             return 0;
         }
 
-        float[] genreWeights = new float[17];
-
-        genreWeights[0] = (float) userGenreHistory.getFpsGenreCount() / (float) userGenreSum;
-        genreWeights[1] = (float) userGenreHistory.getTpsGenreCount() / (float) userGenreSum;
-        genreWeights[2] = (float) userGenreHistory.getActionGenreCount() / (float) userGenreSum;
-        genreWeights[3] = (float) userGenreHistory.getAdventureGenreCount() / (float) userGenreSum;
-        genreWeights[4] = (float) userGenreHistory.getSandboxGenreCount() / (float) userGenreSum;
-        genreWeights[5] = (float) userGenreHistory.getRpgGenreCount() / (float) userGenreSum;
-        genreWeights[6] = (float) userGenreHistory.getRtsGenreCount() / (float) userGenreSum;
-        genreWeights[7] = (float) userGenreHistory.getHorrorGenreCount() / (float) userGenreSum;
-        genreWeights[8] = (float) userGenreHistory.getHacknslashGenreCount() / (float) userGenreSum;
-        genreWeights[9] = (float) userGenreHistory.getStealthGenreCount() / (float) userGenreSum;
-        genreWeights[10] = (float) userGenreHistory.getSimulationGenreCount() / (float) userGenreSum;
-        genreWeights[11] = (float) userGenreHistory.getSportsGenreCount() / (float) userGenreSum;
-        genreWeights[12] = (float) userGenreHistory.getRacingGenreCount() / (float) userGenreSum;
-        genreWeights[13] = (float) userGenreHistory.getFightingGenreCount() / (float) userGenreSum;
-        genreWeights[14] = (float) userGenreHistory.getMmoGenreCount() / (float) userGenreSum;
-        genreWeights[15] = (float) userGenreHistory.getPuzzleGenreCount() / (float) userGenreSum;
-        genreWeights[16] = (float) userGenreHistory.getPlatformerGenreCount() / (float) userGenreSum;
+        float[] genreWeights = calculateGenreWeights(userGenreHistory, userGenreSum);
 
         float genreScore = 0;
 
@@ -166,6 +148,30 @@ public class GameRecommendationServiceImpl implements GameRecommendationService 
         logger.info("game: " + game.getGameName() + "Genre Score: " + genreScore);
 
         return genreScore;
+    }
+
+    public float[] calculateGenreWeights(UserGenreHistory userGenreHistory, float userGenreSum) {
+        float[] genreWeights = new float[17];
+
+        genreWeights[0] = (float) userGenreHistory.getFpsGenreCount() / (float) userGenreSum;
+        genreWeights[1] = (float) userGenreHistory.getTpsGenreCount() / (float) userGenreSum;
+        genreWeights[2] = (float) userGenreHistory.getActionGenreCount() / (float) userGenreSum;
+        genreWeights[3] = (float) userGenreHistory.getAdventureGenreCount() / (float) userGenreSum;
+        genreWeights[4] = (float) userGenreHistory.getSandboxGenreCount() / (float) userGenreSum;
+        genreWeights[5] = (float) userGenreHistory.getRpgGenreCount() / (float) userGenreSum;
+        genreWeights[6] = (float) userGenreHistory.getRtsGenreCount() / (float) userGenreSum;
+        genreWeights[7] = (float) userGenreHistory.getHorrorGenreCount() / (float) userGenreSum;
+        genreWeights[8] = (float) userGenreHistory.getHacknslashGenreCount() / (float) userGenreSum;
+        genreWeights[9] = (float) userGenreHistory.getStealthGenreCount() / (float) userGenreSum;
+        genreWeights[10] = (float) userGenreHistory.getSimulationGenreCount() / (float) userGenreSum;
+        genreWeights[11] = (float) userGenreHistory.getSportsGenreCount() / (float) userGenreSum;
+        genreWeights[12] = (float) userGenreHistory.getRacingGenreCount() / (float) userGenreSum;
+        genreWeights[13] = (float) userGenreHistory.getFightingGenreCount() / (float) userGenreSum;
+        genreWeights[14] = (float) userGenreHistory.getMmoGenreCount() / (float) userGenreSum;
+        genreWeights[15] = (float) userGenreHistory.getPuzzleGenreCount() / (float) userGenreSum;
+        genreWeights[16] = (float) userGenreHistory.getPlatformerGenreCount() / (float) userGenreSum;
+
+        return genreWeights;
     }
 
     public float calculateRatingScore(UserRatingHistory userRatingHistory, Game game) {

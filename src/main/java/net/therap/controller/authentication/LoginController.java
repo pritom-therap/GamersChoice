@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  * Time: 3:19 PM
  * To change this template use File | Settings | File Templates.
  */
-public class LoginController extends SimpleFormController{
+public class LoginController extends SimpleFormController {
 
     private UserService userService;
 
@@ -34,7 +34,6 @@ public class LoginController extends SimpleFormController{
     @Override
     protected Object formBackingObject(HttpServletRequest request) throws Exception {
         LoginCmd loginCmd = new LoginCmd();
-
         return loginCmd;
     }
 
@@ -42,22 +41,16 @@ public class LoginController extends SimpleFormController{
     protected ModelAndView onSubmit(HttpServletRequest request, HttpServletResponse response, Object command, BindException errors) throws Exception {
 
         LoginCmd loginCmd = (LoginCmd) command;
-
         User user = userService.Authenticate(loginCmd);
 
-        if(user!=null) {
-           HttpSession session = request.getSession();
-           session.setAttribute("User", user);
-        }
-        else {
+        if (user != null) {
             HttpSession session = request.getSession();
-            session.setAttribute("message","Please put correct Username/Password");
+            session.setAttribute("User", user);
+        } else {
+            HttpSession session = request.getSession();
+            session.setAttribute("message", "Please put correct Username/Password");
             return new ModelAndView(new RedirectView("/gamerschoice/Login.htm"));
         }
-
-
         return new ModelAndView(new RedirectView("/gamerschoice/GamersChoice.htm"));
     }
-
-
 }

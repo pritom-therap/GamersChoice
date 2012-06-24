@@ -49,9 +49,6 @@ public class UserServiceImpl implements UserService {
     public User Authenticate(LoginCmd loginCmd) {
 
         List<User> users = userDao.getUsers();
-
-
-
         for (User user : users) {
             logger.info("LoginCmd email: " + loginCmd.getEmail() + " user email: " + user.getEmail() + " LoginCmd password: " + loginCmd.getPassword() + " user password: " + user.getPassword());
             if (user.getEmail().equals(loginCmd.getEmail()) && user.getPassword().equals(loginCmd.getPassword())) {
@@ -60,9 +57,7 @@ public class UserServiceImpl implements UserService {
 
 
         }
-
         return null;
-
     }
 
     public User getUserById(int id) {

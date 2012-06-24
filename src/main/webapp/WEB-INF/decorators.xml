@@ -2,17 +2,6 @@
 
 <decorators defaultdir="/WEB-INF/decorators">
 
-<!--
-    <excludes>
-<<<<<<< HEAD
-        <pattern>/LoginCmd</pattern>
-=======
-        <pattern>/Login</pattern>
->>>>>>> 958d29b8c056bfe7629bdb3f882003e9797e4933
-    </excludes>
--->
-
-
     <decorator name="main" page="main.jsp">
         <pattern>/*</pattern>
     </decorator>

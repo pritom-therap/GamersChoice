@@ -12,10 +12,8 @@
 
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internalResourceViewResolver">
-
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
-
     </bean>
 
     <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
@@ -47,12 +45,7 @@
     </bean>
 
 
-    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
-
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
-
-
-    <bean class="net.therap.controller.game.GameAdditionController" name="addGameController">
+     <bean class="net.therap.controller.game.GameAdditionController" name="addGameController">
 
         <property name="commandName" value="gameCmd"/>
         <property name="commandClass" value="net.therap.command.GameCmd"/>
@@ -163,7 +156,6 @@
                 <prop key="/GamersChoice.htm">gameRecommendationController</prop>
                 <prop key="/Users.htm">viewUsersController</prop>
                 <prop key="/User.htm">userTrackRequestController</prop>
-
                 <prop key="/TrackRequests.htm">approveRequestController</prop>
                 <prop key="/GameReviews.htm">viewGameReviewController</prop>
                 <prop key="/AccessError.htm">accessErrorController</prop>
@@ -204,7 +196,6 @@
 
 
     <bean id="trackUserService" class="net.therap.service.tracking.TrackUserServiceImpl">
-
         <property name="userDao" ref="userDao"/>
         <property name="trackUserDao" ref="trackUserDao"/>
     </bean>
@@ -225,7 +216,6 @@
 
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="messages_en_US"/>
-
     </bean>
 
 </beans>
