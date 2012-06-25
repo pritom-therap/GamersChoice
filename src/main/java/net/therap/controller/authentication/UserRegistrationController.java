@@ -22,11 +22,9 @@ public class UserRegistrationController extends SimpleFormController{
 
     private UserService userService;
 
-    Logger logger = Logger.getLogger(this.getClass());
+    protected final Logger logger = Logger.getLogger(this.getClass());
 
-    public UserService getUserService() {
-        return userService;
-    }
+
 
     public void setUserService(UserService userService) {
         this.userService = userService;
@@ -34,7 +32,7 @@ public class UserRegistrationController extends SimpleFormController{
 
 
 
-    protected Object formBackingObject(HttpServlet request) {
+    protected Object formBackingObject(HttpServlet request){
         UserCmd userCmd = new UserCmd();
         return userCmd;
     }

@@ -22,13 +22,8 @@ import java.util.List;
  */
 public class GameReviewController implements Controller {
 
-
     private GameReviewService gameReviewService;
     protected final Logger logger = Logger.getLogger(this.getClass());
-
-    public GameReviewService getGameReviewService() {
-        return gameReviewService;
-    }
 
     public void setGameReviewService(GameReviewService gameReviewService) {
         this.gameReviewService = gameReviewService;
@@ -46,7 +41,5 @@ public class GameReviewController implements Controller {
         modelMap.put("playedGames", gameReviewList);
 
         return new ModelAndView("Game/GameReviews",modelMap);
-
-
     }
 }

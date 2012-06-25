@@ -25,7 +25,6 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
     public void updateUserGenreHistory(GameReview gameReview) {
         User user = gameReview.getUser();
         Game game = gameReview.getGame();
-
         int genre = game.getGenre();
 
         UserGenreHistory userGenreHistory = user.getUserGenreHistory();
@@ -124,8 +123,6 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 
         session.saveOrUpdate(user);
         session.flush();
-
-
     }
 
     public void saveUser(User user) {
@@ -166,27 +163,11 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
     public void deleteTrackedGameAfterReview(User user, Game game) {
 
         List<Game> trackedGames = user.getTrackedGames();
-
-        logger.info("Size of tracked games: " + trackedGames.size());
-
         trackedGames.remove(game);
-
-        if (trackedGames.contains(game)) {
-
-
-
-            logger.info("found " + game.getGameName() + "in user's list of tracked games");
-
-        }
-        else {
-            logger.info("could not find " + game.getGameName() + "in user's list of tracked games");
-
-            logger.info("found " + game.getGameName() + "in User's list of tracked games");
-
-        }
-
-
         user.setTrackedGames(trackedGames);
 
+        Session session = getSession();
+        session.saveOrUpdate(user);
+        session.flush();
     }
 }

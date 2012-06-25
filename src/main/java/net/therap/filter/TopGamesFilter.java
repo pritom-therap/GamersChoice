@@ -15,11 +15,7 @@ import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
- * <<<<<<< HEAD
  * user: pritom
- * =======
- * User: pritom
- * >>>>>>> 958d29b8c056bfe7629bdb3f882003e9797e4933
  * Date: 6/10/12
  * Time: 11:01 AM
  * To change this template use File | Settings | File Templates.
@@ -27,10 +23,6 @@ import java.util.List;
 public class TopGamesFilter extends GenericFilterBean {
 
     GameDao gameDao;
-
-    public GameDao getGameDao() {
-        return gameDao;
-    }
 
     public void setGameDao(GameDao gameDao) {
         this.gameDao = gameDao;
@@ -49,8 +41,6 @@ public class TopGamesFilter extends GenericFilterBean {
 
             session.setAttribute("topGames", topRankedGames);
         }
-
         filterChain.doFilter(servletRequest, servletResponse);
-
     }
 }

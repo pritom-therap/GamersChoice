@@ -29,9 +29,6 @@ public class UserRegistrationValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "required.password", "Password is required.");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "required.confirmPassword", "Confirm the password.");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "required.email", "Email address is required.");
-        //ValidationUtils.rejectIfEmptyOrWhitespace(errors,"agreeRules","required.agreeRules","All registered user must agree to our rules and regulations");
-
-        //ValidationUtils.rejectIfEmptyOrWhitespace(errors,"agreeAgeLimit","required.agreeAgeLimit","user must be at least 12 years old");
 
         if (!(userCmd.getPassword().equals(userCmd.getConfirmPassword()))) {
             errors.rejectValue("password", "notmatch.password");
@@ -42,10 +39,7 @@ public class UserRegistrationValidator implements Validator {
         }
 
         if (userCmd.isAgreeAgeLimit() == false) {
-
-            ValidationUtils.rejectIfEmptyOrWhitespace(errors,"agreeAgeLimit","required.agreeAgeLimit","User must be at least 12 years old");
-
-
+            errors.rejectValue("agreeAgeLimit", "required.agreeAgeLimit");
         }
     }
 }

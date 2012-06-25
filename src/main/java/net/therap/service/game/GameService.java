@@ -32,6 +32,5 @@ public interface GameService {
 
     public List<Game> getUnPlayedGames(User user);
 
-
     public List<Game> getTopGames();
 }

@@ -29,14 +29,9 @@ public class ApproveRequestController extends SimpleFormController {
 
     private TrackUserService trackUserService;
 
-    public TrackUserService getTrackUserService() {
-        return trackUserService;
-    }
-
     public void setTrackUserService(TrackUserService trackUserService) {
         this.trackUserService = trackUserService;
     }
-
 
     @Override
     protected Object formBackingObject(HttpServletRequest request) throws Exception {
@@ -49,13 +44,10 @@ public class ApproveRequestController extends SimpleFormController {
         Map referenceData = new HashMap();
 
         HttpSession session = request.getSession();
-
         User user = (User) session.getAttribute("User");
-
         List<User> requestingUsers = trackUserService.getRequestingUsers(user);
 
         referenceData.put("requestingUsers", requestingUsers);
-
 
         return referenceData;
     }
@@ -63,7 +55,6 @@ public class ApproveRequestController extends SimpleFormController {
     @Override
     protected ModelAndView onSubmit(HttpServletRequest request, HttpServletResponse response, Object command, BindException errors) throws Exception {
         ProcessRequestCmd processRequestCmd = (ProcessRequestCmd) command;
-
         HttpSession session = request.getSession();
 
         User user = (User) session.getAttribute("User");

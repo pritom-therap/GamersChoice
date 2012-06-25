@@ -30,7 +30,6 @@ public class GameDaoImpl extends HibernateDaoSupport implements GameDao {
     public void updateGameRatings(GameReview gameReview) {
 
         Game game = gameReview.getGame();
-
         int voteCount = game.getVoteCount();
 
         float updatedRatingPresentation = (game.getRatingPresentation() * voteCount + gameReview.getRatingPresentation()) / (voteCount + 1);
@@ -59,7 +58,6 @@ public class GameDaoImpl extends HibernateDaoSupport implements GameDao {
         Session session = getSession();
         session.saveOrUpdate(game);
         session.flush();
-
     }
 
     public List<Game> getGames() {
@@ -87,21 +85,11 @@ public class GameDaoImpl extends HibernateDaoSupport implements GameDao {
 
         List<Game> games = getHibernateTemplate().find(queryString);
 
-        Map<Float,Game> topGamesMap = new TreeMap<Float,Game>();
+        Collections.sort(games);
 
-        for (Game game : games) {
+        int subListSize = Math.min(5,games.size());
 
-            topGamesMap.put(game.getRatingOverall(),game);
-
-        }
-
-        List<Game> topGames = new ArrayList<Game>(topGamesMap.values());
-
-        Collections.reverse(topGames);
-
-        int subListSize = Math.min(5,topGames.size());
-
-        topGames = topGames.subList(0,subListSize);
+        List<Game> topGames = games.subList(0,subListSize);
 
         return topGames;
 

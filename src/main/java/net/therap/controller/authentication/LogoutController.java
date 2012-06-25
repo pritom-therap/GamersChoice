@@ -18,10 +18,11 @@ import javax.servlet.http.HttpSession;
 public class LogoutController implements Controller {
 
     public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
+
         HttpSession session = httpServletRequest.getSession();
         session.removeAttribute("User");
         session.invalidate();
 
-        return new ModelAndView(new RedirectView("/gamerschoice/Login.htm"));
+        return new ModelAndView(new RedirectView("/gamerschoice/Welcome.htm"));
     }
 }

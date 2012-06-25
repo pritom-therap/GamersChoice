@@ -23,16 +23,9 @@ public class GameRecommendationController implements Controller {
 
     private GameRecommendationService gameRecommendationService;
 
-
-    public GameRecommendationService getGameRecommendationService() {
-        return gameRecommendationService;
-    }
-
     public void setGameRecommendationService(GameRecommendationService gameRecommendationService) {
         this.gameRecommendationService = gameRecommendationService;
     }
-
-
 
     public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
 
@@ -40,6 +33,7 @@ public class GameRecommendationController implements Controller {
         User user = (User) session.getAttribute("User");
 
         List<Game> recommendedGames = gameRecommendationService.getRecommendations(user);
+
         boolean gotRecommendation;
 
         if (recommendedGames.size()!=0) {
@@ -54,6 +48,6 @@ public class GameRecommendationController implements Controller {
         modelMap.addAttribute("gotRecommendation", gotRecommendation);
         modelMap.addAttribute("recommendedGames", recommendedGames);
 
-        return new ModelAndView("Game/GamersChoice", modelMap);  //To change body of implemented methods use File | Settings | File Templates.
+        return new ModelAndView("Game/GamersChoice", modelMap);
     }
 }

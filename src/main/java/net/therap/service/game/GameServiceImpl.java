@@ -33,56 +33,27 @@ public class GameServiceImpl implements GameService {
     private GenreMap genreMap;
     private UserDao userDao;
 
-
-    public UserDao getUserDao() {
-        return userDao;
-    }
-
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
-    }
-
-    public GameDao getGameDao() {
-        return gameDao;
     }
 
     public void setGameDao(GameDao gameDao) {
         this.gameDao = gameDao;
     }
 
+    public void setGenreMap(GenreMap genreMap) {
+        this.genreMap = genreMap;
+    }
+
     public int addGame(GameCmd gameCmd) {
 
-        /*BidiMap genreMap = new TreeBidiMap();
-
-        genreMap.put(fpsGenreMask, "FPS");
-        genreMap.put(tpsGenreMask, "TPS");
-        genreMap.put(actionGenreMask, "Action");
-        genreMap.put(adventureGenreMask, "Adventure");
-        genreMap.put(sandboxGenreMask, "Sandbox");
-        genreMap.put(rpgGenreMask, "RPG");
-        genreMap.put(rtsGenreMask, "RTS");
-        genreMap.put(horrorGenreMask, "Horror");
-        genreMap.put(hacknslashGenreMask, "Hacknslash");
-        genreMap.put(stealthGenreMask, "Stealth");
-        genreMap.put(simulationGenreMask, "Simulation");
-        genreMap.put(sportsGenreMask, "Sports");
-        genreMap.put(racingGenreMask, "Racing");
-        genreMap.put(fightingGenreMask, "Fighting");
-        genreMap.put(mmoGenreMask, "MMO");
-        genreMap.put(puzzleGenreMask, "Puzzle");
-        genreMap.put(platformerGenreMask, "Platformer");*/
-
-
         Game game = new Game();
-
         game.setGameName(gameCmd.getGameName());
         game.setPlatform(gameCmd.getPlatform());
         game.setSynopsis(gameCmd.getSynopsis());
         game.setDeveloper(gameCmd.getDeveloper());
 
         MultipartFile multipartFile = gameCmd.getFile();
-
-
         Blob blob = null;
         try {
             blob = Hibernate.createBlob(multipartFile.getInputStream());
@@ -113,7 +84,6 @@ public class GameServiceImpl implements GameService {
 
         game.setReleaseDate(new Date());
 
-        //for ()
 
         int gameId = gameDao.saveGame(game);
 
@@ -154,13 +124,6 @@ public class GameServiceImpl implements GameService {
 
     }
 
-    public GenreMap getGenreMap() {
-        return genreMap;
-    }
-
-    public void setGenreMap(GenreMap genreMap) {
-        this.genreMap = genreMap;
-    }
 
     public Game getGameById(int gameId, User user) {
 
@@ -195,8 +158,6 @@ public class GameServiceImpl implements GameService {
 
         List<GameReview> playedGames = user.getPlayedGames();
         List<Game> trackedGames = user.getTrackedGames();
-
-        logger.info("Size of played ");
 
         for (GameReview gameReview : playedGames) {
 
@@ -249,7 +210,6 @@ public class GameServiceImpl implements GameService {
             game.setGenreString(getGenreAsString(game.getGenre()));
             playedGames.add(game);
         }
-
         return playedGames;
     }
 
@@ -258,25 +218,19 @@ public class GameServiceImpl implements GameService {
 
         String genreString = getGenreAsString(game.getGenre());
         game.setGenreString(genreString);
-
         game.setPlayed(true);
 
         try {
             byte[] bytes = new byte[addNewGameCmd.getFile().getInputStream().available()];
-
             addNewGameCmd.getFile().getInputStream().read(bytes);
             addNewGameCmd.getFile().getInputStream().close();
 
-
             FileOutputStream fileOutputStream = new FileOutputStream("webapps/gamerschoice/images/screenshot.jpg");
-
             fileOutputStream.write(bytes);
-
             fileOutputStream.close();
         } catch (IOException Ex) {
             throw new RuntimeException(Ex);
         }
-
         return game;
     }
 
@@ -293,7 +247,6 @@ public class GameServiceImpl implements GameService {
 
         games.removeAll(playedGames);
 
-
-        return games;  //To change body of implemented methods use File | Settings | File Templates.
+        return games;
     }
 }

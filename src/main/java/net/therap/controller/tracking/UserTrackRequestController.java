@@ -26,33 +26,18 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 public class UserTrackRequestController extends SimpleFormController {
-
     protected final Logger logger = Logger.getLogger(this.getClass());
-
 
     private GameService gameService;
     private TrackUserService trackUserService;
     private UserService userService;
 
-    public UserService getUserService() {
-        return userService;
-    }
-
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
 
-
-    public GameService getGameService() {
-        return gameService;
-    }
-
     public void setGameService(GameService gameService) {
         this.gameService = gameService;
-    }
-
-    public TrackUserService getTrackUserService() {
-        return trackUserService;
     }
 
     public void setTrackUserService(TrackUserService trackUserService) {
@@ -64,7 +49,6 @@ public class UserTrackRequestController extends SimpleFormController {
 
         int userId = ServletRequestUtils.getIntParameter(request,"userId",-1);
         User requestedUser = userService.getUserById(userId);
-
         List<Game> playedGames = gameService.getReviewedGames(requestedUser);
 
         HttpSession session = request.getSession();
@@ -75,31 +59,20 @@ public class UserTrackRequestController extends SimpleFormController {
 
         trackUserService.setTrackStatus(currentUser, requestedUser);
 
-        logger.info("user : " + requestedUser.getUserName());
         return requestedUser;
-
     }
 
 
     protected ModelAndView onSubmit(HttpServletRequest request, HttpServletResponse response, Object command, BindException errors) throws Exception {
 
         HttpSession session = request.getSession();
-
         User user = (User) session.getAttribute("User");
-
         User trackedUser = (User) command;
-
         trackUserService.addRequest(user, trackedUser);
 
-        logger.info("user inside submit class : " + trackedUser.getUserName());
-
         ModelMap modelMap = new ModelMap();
-
         modelMap.addAttribute("userId", trackedUser.getUserId());
 
         return new ModelAndView(new RedirectView("/gamerschoice/User.htm"), modelMap);
-
-
     }
-
 }

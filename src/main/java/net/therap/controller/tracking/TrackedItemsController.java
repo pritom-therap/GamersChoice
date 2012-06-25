@@ -29,25 +29,12 @@ public class TrackedItemsController implements Controller {
     private TrackGameService trackGameService;
     private TrackUserService trackUserService;
 
-
-    public TrackUserService getTrackUserService() {
-        return trackUserService;
-    }
-
     public void setTrackUserService(TrackUserService trackUserService) {
         this.trackUserService = trackUserService;
     }
 
-    public UserService getUserService() {
-        return userService;
-    }
-
     public void setUserService(UserService userService) {
         this.userService = userService;
-    }
-
-    public TrackGameService getTrackGameService() {
-        return trackGameService;
     }
 
     public void setTrackGameService(TrackGameService trackGameService) {

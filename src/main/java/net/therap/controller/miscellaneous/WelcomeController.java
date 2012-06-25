@@ -19,18 +19,13 @@ import java.util.List;
  */
 public class WelcomeController implements Controller {
 
-    GameService gameService;
-
-    public GameService getGameService() {
-        return gameService;
-    }
+    private GameService gameService;
 
     public void setGameService(GameService gameService) {
         this.gameService = gameService;
     }
 
     public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
-
 
         HttpSession session = httpServletRequest.getSession();
 

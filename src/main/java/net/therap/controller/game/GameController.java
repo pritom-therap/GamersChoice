@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-
 /**
  * Created by IntelliJ IDEA.
  * user: pritom
@@ -27,42 +26,16 @@ import java.util.List;
 public class GameController extends SimpleFormController{
     protected final Logger logger = Logger.getLogger(this.getClass());
 
-
     private GameService gameService;
     private TrackGameService trackGameService;
-
-
-
-    public TrackGameService getTrackGameService() {
-        return trackGameService;
-    }
 
     public void setTrackGameService(TrackGameService trackGameService) {
         this.trackGameService = trackGameService;
     }
 
-
-    public GameService getGameService() {
-        return gameService;
-    }
-
     public void setGameService(GameService gameService) {
         this.gameService = gameService;
     }
-
-
-    /*@Override
-    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
-        logger.info("Got request from game.htm" + request.getParameter("gameId"));
-
-
-        int gameId = Integer.parseInt(request.getParameter("gameId"));
-        game game = gameService.getGameById(gameId);
-
-
-        return new ModelAndView("game", "game", game);
-    }*/
 
     @Override
     protected Object formBackingObject(HttpServletRequest request) throws Exception {
@@ -75,7 +48,6 @@ public class GameController extends SimpleFormController{
         Game game = gameService.getGameById(gameId, user);
 
         return game;
-
     }
 
 
@@ -84,22 +56,15 @@ public class GameController extends SimpleFormController{
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("User");
-
-
         user = trackGameService.addNewTrackedGame(game, user);
 
         ModelMap modelMap = new ModelMap();
 
         List<Game> trackedGames = user.getTrackedGames();
-
         gameService.setGenre(trackedGames);
 
         modelMap.addAttribute("trackedGames", trackedGames);
 
-
         return new ModelAndView("Tracking/TrackedItems", modelMap);
-
-
-
     }
 }

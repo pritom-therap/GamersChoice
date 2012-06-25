@@ -19,13 +19,7 @@ import java.util.List;
  */
 public class ViewUsersController implements Controller {
 
-
     UserService userService;
-
-
-    public UserService getUserService() {
-        return userService;
-    }
 
     public void setUserService(UserService userService) {
         this.userService = userService;
@@ -36,11 +30,8 @@ public class ViewUsersController implements Controller {
         List<User> users = userService.getUsers();
 
         ModelMap modelMap = new ModelMap();
-
         modelMap.addAttribute("users", users);
 
         return new ModelAndView("User/Users", modelMap);
-
-
     }
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
-
+ * <p/>
  * user: pritom
  * Date: 6/3/12
  * Time: 9:42 AM
@@ -15,11 +15,11 @@ import java.util.List;
  */
 public interface GameDao {
 
-     public void updateGameRatings(GameReview gameReview);
+    public void updateGameRatings(GameReview gameReview);
 
-     public Game getGameById(int id);
+    public Game getGameById(int id);
 
-     public List<Game> getGames();
+    public List<Game> getGames();
 
     public int saveGame(Game game);
 

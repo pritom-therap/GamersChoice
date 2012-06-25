@@ -19,14 +19,4 @@ public class TrackUserDaoImpl extends HibernateDaoSupport implements TrackUserDa
         session.saveOrUpdate(trackedUser);
         session.flush();
     }
-
-
-    public void updateRequest(TrackedUser trackedUser) {
-
-        Session session = getSession();
-        session.merge(trackedUser);
-        session.flush();
-
-    }
-
 }

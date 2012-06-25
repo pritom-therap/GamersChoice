@@ -184,7 +184,6 @@
 
     <bean id="trackGameService" class="net.therap.service.tracking.TrackGameServiceImpl">
         <property name="userDao" ref="userDao"/>
-        <property name="gameDao" ref="gameDao"/>
         <property name="genreMap" ref="genreMap"/>
     </bean>
 

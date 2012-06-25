@@ -12,6 +12,4 @@ import net.therap.domain.GameReview;
 public interface GameReviewDao {
 
     public void saveGameReview(GameReview gameReview);
-
-
 }

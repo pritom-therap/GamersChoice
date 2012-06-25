@@ -22,16 +22,8 @@ public class TrackUserServiceImpl implements TrackUserService {
     private UserDao userDao;
     private TrackUserDao trackUserDao;
 
-    public UserDao getUserDao() {
-        return userDao;
-    }
-
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
-    }
-
-    public TrackUserDao getTrackUserDao() {
-        return trackUserDao;
     }
 
     public void setTrackUserDao(TrackUserDao trackUserDao) {
@@ -40,7 +32,6 @@ public class TrackUserServiceImpl implements TrackUserService {
 
     public void setTrackStatus(User user, User requestedUser) {
         for (TrackedUser trackedUser : user.getTrackedUsers()) {
-
             if (trackedUser.getTrackedUser().getEmail().equals(requestedUser.getEmail())) {
                 if (trackedUser.getApproved().equals("A")) {
                     requestedUser.setApproved(true);
@@ -62,20 +53,15 @@ public class TrackUserServiceImpl implements TrackUserService {
         user = userDao.getUserbyId(user.getUserId());
         requestedUser = userDao.getUserbyId(requestedUser.getUserId());
 
-
         trackedUser.setUser(user);
         trackedUser.setTrackedUser(requestedUser);
-
         trackedUser.setApproved("R");
-
         trackUserDao.saveRequest(trackedUser);
     }
 
     public List<User> getApprovedUsers(User user) {
 
         user = userDao.getUserbyId(user.getUserId());
-
-
         List<TrackedUser> trackedUsers = user.getTrackedUsers();
 
         List<User> approvedUsers = new ArrayList<User>();
@@ -89,9 +75,7 @@ public class TrackUserServiceImpl implements TrackUserService {
         }
 
         for (User trackedUser : approvedUsers) {
-
             List<GameReview> gameReviewList = trackedUser.getPlayedGames();
-
             Collections.sort(gameReviewList);
         }
 
@@ -101,7 +85,6 @@ public class TrackUserServiceImpl implements TrackUserService {
     public List<User> getRequestingUsers(User user) {
 
         user = userDao.getUserbyId(user.getUserId());
-
 
         List<TrackedUser> trackedUsers = user.getRequestingUsers();
 
@@ -120,8 +103,6 @@ public class TrackUserServiceImpl implements TrackUserService {
 
     public void approveUsers(String[] processedRequestingUsers, User approvingUser) {
 
-        //List<user> approvedRequestingUsers = new ArrayList<user>();
-
         approvingUser = userDao.getUserbyId(approvingUser.getUserId());
 
         List<TrackedUser> requestingUsers = approvingUser.getRequestingUsers();
@@ -135,17 +116,11 @@ public class TrackUserServiceImpl implements TrackUserService {
                     trackUserDao.saveRequest(trackedUser);
                     break;
                 }
-
             }
-
         }
-
-
     }
 
     public void rejectUsers(String[] processedRequestingUsers, User approvingUser) {
-
-        //List<user> approvedRequestingUsers = new ArrayList<user>();
 
         approvingUser = userDao.getUserbyId(approvingUser.getUserId());
 
@@ -160,13 +135,7 @@ public class TrackUserServiceImpl implements TrackUserService {
                     trackUserDao.saveRequest(trackedUser);
                     break;
                 }
-
             }
-
         }
-
-
     }
-
-
 }

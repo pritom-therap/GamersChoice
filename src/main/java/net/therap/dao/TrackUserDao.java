@@ -12,9 +12,4 @@ import net.therap.domain.TrackedUser;
 public interface TrackUserDao {
 
     public void saveRequest(TrackedUser trackedUser);
-
-
-    public void updateRequest(TrackedUser trackedUser);
-
-
-   }
+}

@@ -47,6 +47,4 @@ public interface UserDao {
     public void updateUser(User user);
 
     public void deleteTrackedGameAfterReview(User user, Game game);
-
-
 }

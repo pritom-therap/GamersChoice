@@ -29,14 +29,9 @@ public class GameAdditionController extends SimpleFormController {
 
     private GameService gameService;
 
-    public GameService getGameService() {
-        return gameService;
-    }
-
     public void setGameService(GameService gameService) {
         this.gameService = gameService;
     }
-
 
     protected Object formBackingObject(HttpServlet request) {
         GameCmd gameCmd = new GameCmd();
@@ -48,10 +43,7 @@ public class GameAdditionController extends SimpleFormController {
             throws Exception {
 
         GameCmd gameCmd = (GameCmd) command;
-
-
         int gameId = gameService.addGame(gameCmd);
-
         Game game = gameService.getNewlyAddedGame(gameId, gameCmd);
 
         return new ModelAndView("Game/Game", "game", game);

@@ -21,27 +21,19 @@ import java.util.List;
 public class GamesViewController implements Controller {
     protected final Logger logger = Logger.getLogger(this.getClass());
 
-    GameService gameService;
-
-    public GameService getGameService() {
-        return gameService;
-    }
+    private GameService gameService;
 
     public void setGameService(GameService gameService) {
         this.gameService = gameService;
     }
-
 
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         List<Game> gameList = gameService.getGames();
 
         ModelMap modelMap = new ModelMap();
-
         modelMap.addAttribute("gameList", gameList);
 
-
         return new ModelAndView("/Game/Games", modelMap);
-
     }
 }

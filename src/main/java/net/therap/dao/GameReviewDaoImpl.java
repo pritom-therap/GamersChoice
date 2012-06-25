@@ -18,13 +18,9 @@ public class GameReviewDaoImpl extends HibernateDaoSupport implements GameReview
 
     public void saveGameReview(GameReview gameReview) {
 
-
-
         Session session = getSession();
         session.saveOrUpdate(gameReview);
         session.flush();
-
-
     }
 
 

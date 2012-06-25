@@ -31,19 +31,11 @@ public class ReviewAdditionController extends SimpleFormController {
 
     protected final Logger logger = Logger.getLogger(this.getClass());
 
-    GameService gameService;
-    GameReviewService gameReviewService;
-
-    public GameReviewService getGameReviewService() {
-        return gameReviewService;
-    }
+    private GameService gameService;
+    private GameReviewService gameReviewService;
 
     public void setGameReviewService(GameReviewService gameReviewService) {
         this.gameReviewService = gameReviewService;
-    }
-
-    public GameService getGameService() {
-        return gameService;
     }
 
     public void setGameService(GameService gameService) {
@@ -51,7 +43,6 @@ public class ReviewAdditionController extends SimpleFormController {
     }
 
     protected ModelAndView onSubmit(HttpServletRequest request, HttpServletResponse response, Object command, BindException errors) {
-
 
         ReviewCmd reviewCmd = (ReviewCmd) command;
 
@@ -77,7 +68,6 @@ public class ReviewAdditionController extends SimpleFormController {
         for (float i = 1.0f; i <= 10.0; i += 0.5) {
             scaleList.add(i);
         }
-
 
         List<Game> games = gameService.getUnPlayedGames(user);
 

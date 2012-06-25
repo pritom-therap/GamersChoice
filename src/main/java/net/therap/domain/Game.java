@@ -19,7 +19,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "PT_GAME")
-public class Game {
+public class Game implements Comparable{
 
     private int gameId;
     private String gameName;
@@ -272,5 +272,18 @@ public class Game {
 
     public void setTracked(boolean tracked) {
         this.tracked = tracked;
+    }
+
+    public int compareTo(Object o) {
+        Game game = (Game) o;
+
+        if (this.getRatingOverall() > game.getRatingOverall()) {
+            return -1;
+        }
+        else if (this.getRatingOverall() == game.getRatingOverall()) {
+            return 0;
+        }
+        else
+            return 1;
     }
 }

@@ -23,26 +23,14 @@ public class GameReviewServiceImpl implements GameReviewService {
 
     private GameDao gameDao;
     private UserDao userDao;
-     GameReviewDao gameReviewDao;
-
-    public GameDao getGameDao() {
-        return gameDao;
-    }
+    private GameReviewDao gameReviewDao;
 
     public void setGameDao(GameDao gameDao) {
         this.gameDao = gameDao;
     }
 
-    public UserDao getUserDao() {
-        return userDao;
-    }
-
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
-    }
-
-    public GameReviewDao getGameReviewDao() {
-        return gameReviewDao;
     }
 
     public void setGameReviewDao(GameReviewDao gameReviewDao) {
@@ -50,8 +38,6 @@ public class GameReviewServiceImpl implements GameReviewService {
     }
 
     public void addReview(ReviewCmd reviewCmd, User user) {
-
-
 
         GameReview gameReview = new GameReview();
         Game game = gameDao.getGameById(reviewCmd.getGameId());
@@ -74,20 +60,15 @@ public class GameReviewServiceImpl implements GameReviewService {
         gameReviewDao.saveGameReview(gameReview);
         gameDao.updateGameRatings(gameReview);
         userDao.updateUserRatingHistory(gameReview);
-        userDao.deleteTrackedGameAfterReview(user,game);
+        userDao.deleteTrackedGameAfterReview(user, game);
         userDao.updateUserGenreHistory(gameReview);
-
-
-
     }
 
     public List<GameReview> getGamesReviewedByUser(User user) {
 
         user = userDao.getUserbyId(user.getUserId());
 
-
         List<GameReview> gameReviewList = user.getPlayedGames();
-
         Collections.sort(gameReviewList);
 
         return gameReviewList;
