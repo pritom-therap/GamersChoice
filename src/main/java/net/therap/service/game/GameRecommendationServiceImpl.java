@@ -27,29 +27,16 @@ public class GameRecommendationServiceImpl implements GameRecommendationService 
 
     protected final Logger logger = Logger.getLogger(this.getClass());
 
-
     private UserDao userDao;
     private GameDao gameDao;
     private GenreMap genreMap;
-
-    public UserDao getUserDao() {
-        return userDao;
-    }
 
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
     }
 
-    public GameDao getGameDao() {
-        return gameDao;
-    }
-
     public void setGameDao(GameDao gameDao) {
         this.gameDao = gameDao;
-    }
-
-    public GenreMap getGenreMap() {
-        return genreMap;
     }
 
     public void setGenreMap(GenreMap genreMap) {
@@ -69,16 +56,12 @@ public class GameRecommendationServiceImpl implements GameRecommendationService 
         List<Game> unPlayedGames = new ArrayList<Game>(games);
 
         for (GameReview gameReview : playedGames) {
-
             unPlayedGames.remove(gameReview.getGame());
-
         }
-
 
         Map<Float, Game> RecommendedGames = new TreeMap<Float, Game>();
 
         for (Game game : unPlayedGames) {
-
             float recommendationScore = calculateRecommendationScore(userGenreHistory, userRatingHistory, game);
             if (recommendationScore != 0) {
                 RecommendedGames.put(recommendationScore, game);
@@ -100,7 +83,6 @@ public class GameRecommendationServiceImpl implements GameRecommendationService 
 
         setGenre(recommendedGames);
 
-
         return recommendedGames;
     }
 
@@ -114,7 +96,6 @@ public class GameRecommendationServiceImpl implements GameRecommendationService 
         float gameLengthScore = calculateLengthScore(userRatingHistory, game);
 
         float totalScore = genreScore + ratingScore + difficultyScore + gameLengthScore;
-
 
         return totalScore;
     }
@@ -144,9 +125,6 @@ public class GameRecommendationServiceImpl implements GameRecommendationService 
             index--;
         }
         genreScore = genreScore * genreScoreWeight;
-
-        logger.info("game: " + game.getGameName() + "Genre Score: " + genreScore);
-
         return genreScore;
     }
 
@@ -176,10 +154,7 @@ public class GameRecommendationServiceImpl implements GameRecommendationService 
 
     public float calculateRatingScore(UserRatingHistory userRatingHistory, Game game) {
 
-
         float ratingScore = 0;
-
-
         float presentationScore = userRatingHistory.getAverageRatingPresentation() * game.getRatingPresentation();
         float graphicsScore = userRatingHistory.getAverageRatingGraphics() * game.getRatingGraphics();
         float gameplayScore = userRatingHistory.getAverageRatingGamePlay() * game.getRatingGamePlay();
@@ -189,12 +164,7 @@ public class GameRecommendationServiceImpl implements GameRecommendationService 
         ratingScore = presentationScore + graphicsScore + gameplayScore + soundScore + longevityScore;
 
         ratingScore = (ratingScore * ratingScoreWeight) / maxRating;
-
-        logger.info("game: " + game.getGameName() + "Rating Score: " + ratingScore);
-
         return ratingScore;
-
-
     }
 
     public float calculateDifficultyScore(UserRatingHistory userRatingHistory, Game game) {
@@ -203,13 +173,8 @@ public class GameRecommendationServiceImpl implements GameRecommendationService 
             return 0;
         }
 
-
         float difficulty = (userRatingHistory.getAverageRatingDifficulty() - game.getDifficulty()) * (userRatingHistory.getAverageRatingDifficulty() - game.getDifficulty());
-
         float difficultyScore = ((maxDifficulty - difficulty) * difficultyScoreWeight) / maxDifficulty;
-
-        logger.info("game: " + game.getGameName() + "Difficulty Score: " + difficultyScore);
-
         return difficultyScore;
     }
 
@@ -223,43 +188,28 @@ public class GameRecommendationServiceImpl implements GameRecommendationService 
         if (length < 0) {
             return 0;
         }
-
         length = (length * lengthScoreWeight) / maxLength;
-
-        logger.info("game: " + game.getGameName() + "Length Score: " + length);
-
         return length;
     }
 
     public String getGenreAsString(int genre) {
 
         String gameGenre = "";
-
-
         for (int mask : (Set<Integer>) genreMap.getGenreMap().keySet()) {
-
             if ((genre & mask) != 0) {
                 gameGenre = gameGenre + genreMap.getGenreMap().get(mask) + ", ";
             }
-
         }
 
         gameGenre = gameGenre.substring(0, gameGenre.length() - 2);
-
         return gameGenre;
-
-
     }
 
     public void setGenre(List<Game> games) {
 
         for (Game game : games) {
-
             String genreString = getGenreAsString(game.getGenre());
             game.setGenreString(genreString);
-
         }
     }
-
-
 }

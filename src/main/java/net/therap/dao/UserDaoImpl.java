@@ -148,7 +148,6 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
         String queryString = "from User";
 
         List<User> users = getHibernateTemplate().find(queryString);
-
         return users;
     }
 
@@ -157,7 +156,6 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
         Session session = getSession();
         session.update(user);
         session.flush();
-
     }
 
     public void deleteTrackedGameAfterReview(User user, Game game) {

@@ -14,9 +14,7 @@ import org.springframework.validation.Validator;
 public class TrackUserValidator implements Validator {
 
     public boolean supports(Class<?> aClass) {
-
         return ProcessRequestCmd.class.equals(aClass);
-
     }
 
     public void validate(Object o, Errors errors) {

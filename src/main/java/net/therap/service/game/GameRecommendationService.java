@@ -15,5 +15,4 @@ import java.util.List;
 public interface GameRecommendationService {
 
     public List<Game> getRecommendations(User user);
-
 }

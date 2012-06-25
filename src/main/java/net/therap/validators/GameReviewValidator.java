@@ -28,11 +28,9 @@ public class GameReviewValidator implements Validator{
         if(reviewCmd.getGameLength()<=0.0){
             errors.rejectValue("gameLength","required.length");
         }
-
         if(reviewCmd.getGameLength()>100){
             errors.rejectValue("gameLength","max.gameLength");
         }
-
         if(reviewCmd.getRatingPresentation()==-1.0){
 			errors.rejectValue("ratingPresentation", "required.ratingPresentation");
 		}
@@ -48,13 +46,8 @@ public class GameReviewValidator implements Validator{
         if(reviewCmd.getRatingLongevity()==-1.0){
 			errors.rejectValue("ratingLongevity", "required.ratingLongevity");
 		}
-
         if(reviewCmd.getDifficulty()==-1){
 			errors.rejectValue("difficulty", "required.difficulty");
 		}
-
-
-
-
     }
 }

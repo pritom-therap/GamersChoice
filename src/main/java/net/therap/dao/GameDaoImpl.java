@@ -63,10 +63,7 @@ public class GameDaoImpl extends HibernateDaoSupport implements GameDao {
     public List<Game> getGames() {
 
         String queryString = "from Game";
-
         List<Game> games = getHibernateTemplate().find(queryString);
-
-
         return games;
     }
 
@@ -84,7 +81,6 @@ public class GameDaoImpl extends HibernateDaoSupport implements GameDao {
         String queryString = "from Game";
 
         List<Game> games = getHibernateTemplate().find(queryString);
-
         Collections.sort(games);
 
         int subListSize = Math.min(5,games.size());
@@ -92,6 +88,5 @@ public class GameDaoImpl extends HibernateDaoSupport implements GameDao {
         List<Game> topGames = games.subList(0,subListSize);
 
         return topGames;
-
     }
 }

@@ -25,7 +25,6 @@ public class UserRegistrationValidator implements Validator {
         UserCmd userCmd = (UserCmd) o;
 
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userName", "required.userName", "User Name is required.");
-
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "required.password", "Password is required.");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "confirmPassword", "required.confirmPassword", "Confirm the password.");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "required.email", "Email address is required.");
@@ -33,11 +32,9 @@ public class UserRegistrationValidator implements Validator {
         if (!(userCmd.getPassword().equals(userCmd.getConfirmPassword()))) {
             errors.rejectValue("password", "notmatch.password");
         }
-
         if (userCmd.isAgreeRules() == false) {
             errors.rejectValue("agreeRules", "required.agreeRules");
         }
-
         if (userCmd.isAgreeAgeLimit() == false) {
             errors.rejectValue("agreeAgeLimit", "required.agreeAgeLimit");
         }

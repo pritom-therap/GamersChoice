@@ -61,13 +61,10 @@ public class GameServiceImpl implements GameService {
             throw new RuntimeException(e);
         }
 
-
         game.setScreenShot(blob);
 
         String[] genreList = gameCmd.getGenre();
-
         int genre = getGenreAsInteger(genreList);
-
         game.setGenre(genre);
 
         game.setRatingPresentation(5.0f);
@@ -77,29 +74,21 @@ public class GameServiceImpl implements GameService {
         game.setRatingLongevity(5.0f);
         game.setDifficulty(3);
         game.setGameLength(10);
-
         game.setStatus("A");
-
         game.setVoteCount(0);
-
         game.setReleaseDate(new Date());
 
-
         int gameId = gameDao.saveGame(game);
-
         return gameId;
     }
 
     public int getGenreAsInteger(String[] genreList) {
         int genre = 0;
 
-
         for (String genreName : genreList) {
-
             if (genreMap.getGenreMap().containsValue(genreName)) {
                 genre |= (Integer) genreMap.getGenreMap().getKey(genreName);
             }
-
         }
         return genre;
     }
@@ -108,20 +97,13 @@ public class GameServiceImpl implements GameService {
 
         String gameGenre = "";
 
-
         for (int mask : (Set<Integer>) genreMap.getGenreMap().keySet()) {
-
             if ((genre & mask) != 0) {
                 gameGenre = gameGenre + genreMap.getGenreMap().get(mask) + ", ";
             }
-
         }
-
         gameGenre = gameGenre.substring(0, gameGenre.length() - 2);
-
         return gameGenre;
-
-
     }
 
 
@@ -132,21 +114,15 @@ public class GameServiceImpl implements GameService {
         String genreString = getGenreAsString(game.getGenre());
         game.setGenreString(genreString);
 
-
         try {
             byte[] bytes = new byte[(int) game.getScreenShot().length()];
-
 
             game.getScreenShot().getBinaryStream().read(bytes);
             game.getScreenShot().getBinaryStream().close();
 
-
             FileOutputStream fileOutputStream = new FileOutputStream("webapps/gamerschoice/images/screenshot.jpg");
-
             fileOutputStream.write(bytes);
-
             fileOutputStream.close();
-
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
@@ -160,13 +136,9 @@ public class GameServiceImpl implements GameService {
         List<Game> trackedGames = user.getTrackedGames();
 
         for (GameReview gameReview : playedGames) {
-
             if (game.getGameName().equals(gameReview.getGame().getGameName()) && game.getPlatform().equals(gameReview.getGame().getPlatform())) {
-
                 game.setPlayed(false);
-
             }
-
         }
 
         for (Game trackedGame : trackedGames) {
@@ -175,14 +147,12 @@ public class GameServiceImpl implements GameService {
                 game.setTracked(true);
             }
         }
-
         return game;
     }
 
     public void setGenre(List<Game> games) {
 
         for (Game game : games) {
-
             String genreString = getGenreAsString(game.getGenre());
             game.setGenreString(genreString);
 
@@ -192,11 +162,8 @@ public class GameServiceImpl implements GameService {
     public List<Game> getGames() {
 
         List<Game> games = gameDao.getGames();
-
         setGenre(games);
-
         return games;
-
     }
 
 
@@ -206,7 +173,6 @@ public class GameServiceImpl implements GameService {
 
         for (GameReview gameReview : reviewedGames) {
             Game game = gameReview.getGame();
-
             game.setGenreString(getGenreAsString(game.getGenre()));
             playedGames.add(game);
         }
@@ -244,9 +210,7 @@ public class GameServiceImpl implements GameService {
 
         List<Game> games = getGames();
         List<Game> playedGames = getReviewedGames(user);
-
         games.removeAll(playedGames);
-
         return games;
     }
 }

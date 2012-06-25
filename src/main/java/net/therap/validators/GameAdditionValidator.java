@@ -26,22 +26,13 @@ public class GameAdditionValidator implements Validator {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors,"synopsis","required.synopsis","Synopsis must not be empty");
 
         if(gameCmd.getGenre().length==0) {
-
             errors.rejectValue("genre","required.genre");
-
         }
-
-
-
         if(gameCmd.getFile()==null || gameCmd.getFile().getSize() == 0){
-
             errors.rejectValue("file","required.file");
         }
-
         if(gameCmd.getSynopsis().length()>1000) {
             errors.rejectValue("synopsis","max.synopsisSize");
         }
-
-
     }
 }
